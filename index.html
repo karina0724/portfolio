@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Karina Montero — Software Engineer & QA Specialist</title>
+<title>Karina Montero, Software Engineer & QA Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
     .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
       padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
       border-radius:4px;white-space:pre-wrap;pointer-events:none}
-    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts, keep both
        in sync until dc-runtime regains a build step. */
     @media print {
       @page { margin: 0.5cm; }
@@ -234,6 +234,119 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
 /* Sent-state status chip */
 .form-status { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 13px; font-weight: 600; color: rgb(14, 107, 168); opacity: 0; transition: opacity .25s ease; }
 .form-status.show { opacity: 1; }
+
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+  nav > div { padding: 16px 32px !important; }
+  nav a[href="#top"] { font-size: 16px !important; }
+  nav > div > div:last-child { gap: 20px !important; }
+
+  section#top > div:last-child { padding: 60px 32px 80px !important; }
+  section#top h1 { font-size: 64px !important; }
+  section#top > div:last-child > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+
+  section#services { padding: 80px 0 !important; }
+  section#services > div { padding: 0 32px !important; }
+  section#services > div > div:first-child { grid-template-columns: 1fr !important; gap: 24px !important; }
+  section#services h2 { font-size: 42px !important; }
+  section#services > div > div:last-child { grid-template-columns: repeat(2, 1fr) !important; }
+
+  section#work { padding: 80px 0 !important; }
+  section#work > div { padding: 0 32px !important; }
+  section#work > div > div:first-child { grid-template-columns: 1fr !important; gap: 24px !important; }
+  section#work h2 { font-size: 42px !important; }
+  .exp-row { grid-template-columns: 1fr !important; gap: 20px !important; padding: 32px 16px !important; }
+
+  section#tech { padding: 80px 0 !important; }
+  section#tech > div:last-child { padding: 0 32px !important; }
+  section#tech > div:last-child > div:first-child { grid-template-columns: 1fr !important; gap: 24px !important; }
+  section#tech h2 { font-size: 42px !important; }
+  section#tech > div:last-child > div:last-child { grid-template-columns: repeat(2, 1fr) !important; }
+
+  section#about { padding: 80px 0 !important; }
+  section#about > div { padding: 0 32px !important; }
+  section#about > div > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+  section#about h2 { font-size: 38px !important; }
+  .about-visual { position: relative !important; top: 0 !important; }
+  .hero-code-decor, .hero-ai-decor { display: none !important; }
+
+  section#education { padding: 80px 0 !important; }
+  section#education > div { padding: 0 32px !important; }
+  section#education h2 { font-size: 42px !important; }
+
+  section#contact { padding: 80px 0 !important; }
+  section#contact > div:last-child { padding: 0 32px !important; }
+  section#contact h2 { font-size: 56px !important; }
+  section#contact > div:last-child > div:last-child { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+  footer > div { padding: 0 32px !important; }
+}
+
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  nav > div { padding: 14px 20px !important; flex-wrap: wrap; gap: 12px; }
+  nav > div > div:last-child { gap: 14px !important; flex-wrap: wrap; }
+  nav a.nav-link { font-size: 13px !important; }
+  nav a[href="#contact"].btn-primary { padding: 8px 14px !important; font-size: 12px !important; }
+
+  section#top > div:last-child { padding: 48px 20px 64px !important; }
+  section#top h1 { font-size: 44px !important; letter-spacing: -0.03em !important; }
+  section#top p { font-size: 16px !important; }
+  section#top .anim-5 { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; margin-top: 48px !important; }
+  section#top .anim-5 > div > div:first-child { font-size: 28px !important; }
+
+  section#services { padding: 64px 0 !important; }
+  section#services > div { padding: 0 20px !important; }
+  section#services h2 { font-size: 32px !important; }
+  section#services > div > div:last-child { grid-template-columns: 1fr !important; }
+  section#services .card { padding: 24px !important; min-height: auto !important; }
+
+  section#work { padding: 64px 0 !important; }
+  section#work > div { padding: 0 20px !important; }
+  section#work h2 { font-size: 32px !important; }
+  .exp-row { padding: 28px 0 !important; }
+  .exp-row h3 { font-size: 22px !important; }
+
+  section#tech { padding: 64px 0 !important; }
+  section#tech > div:last-child { padding: 0 20px !important; }
+  section#tech h2 { font-size: 32px !important; }
+  section#tech > div:last-child > div:last-child { grid-template-columns: 1fr !important; }
+  .marquee-wrap { margin-left: -20px !important; margin-right: -20px !important; }
+  .marquee-track span[style*="font-size: 36px"] { font-size: 24px !important; }
+
+  section#about { padding: 64px 0 !important; }
+  section#about > div { padding: 0 20px !important; }
+  section#about h2 { font-size: 28px !important; }
+  section#about > div > div > div:first-child > div:nth-child(5) { grid-template-columns: 1fr !important; }
+
+  section#education { padding: 64px 0 !important; }
+  section#education > div { padding: 0 20px !important; }
+  section#education h2 { font-size: 32px !important; }
+  section#education > div > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+
+  section#contact { padding: 64px 0 !important; }
+  section#contact > div:last-child { padding: 0 20px !important; }
+  section#contact h2 { font-size: 40px !important; }
+  section#contact form > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  section#contact > div:last-child > div:nth-child(2) > div:first-child { padding: 28px !important; }
+
+  footer > div { padding: 0 20px !important; }
+  footer > div > div:first-child { grid-template-columns: 1fr !important; gap: 20px; justify-items: start; }
+  footer > div > div:last-child { flex-direction: column; gap: 10px; align-items: flex-start !important; }
+
+  .profile-circle { width: 220px !important; height: 220px !important; }
+  .profile-circle-ring { width: 300px !important; height: 300px !important; top: -40px !important; left: -40px !important; }
+}
+
+/* Small Mobile: 480px and below */
+@media (max-width: 480px) {
+  section#top h1 { font-size: 36px !important; }
+  section#services h2, section#work h2, section#tech h2, section#education h2 { font-size: 28px !important; }
+  section#contact h2 { font-size: 32px !important; }
+  .exp-row h3 { font-size: 20px !important; }
+}
 </style>
 </head>
 <body>
@@ -251,6 +364,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
         <a data-dc-tpl="9" href="#work" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Work</span></a>
         <a data-dc-tpl="10" href="#tech" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Tech</span></a>
         <a data-dc-tpl="11" href="#about" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">About</span></a>
+        <a href="#education" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Education</span></a>
         <div data-dc-tpl="12" style="padding: 6px 14px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; display: inline-flex; gap: 10px; align-items: center; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.08em; margin-left: 8px;">
           <span data-dc-tpl="13" style="color: rgb(0, 7, 45); font-weight: 500;">EN</span>
           <span data-dc-tpl="14" style="color: rgb(203, 213, 225);">/</span>
@@ -269,6 +383,20 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
     <div data-dc-tpl="18" class="float-decor" style="position: absolute; top: -120px; right: -140px; width: 540px; height: 540px; border-radius: 50%; background: radial-gradient(circle, rgba(166, 225, 250, 0.55) 0%, rgba(166, 225, 250, 0) 70%); z-index: 0; pointer-events: none;"></div>
     <div data-dc-tpl="19" style="position: absolute; bottom: -200px; left: -200px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(14, 107, 168, 0.12) 0%, rgba(14, 107, 168, 0) 70%); z-index: 0; pointer-events: none;"></div>
 
+    <div class="float-decor hero-code-decor" style="position: absolute; top: 140px; left: 48%; z-index: 0; opacity: 0.6; pointer-events: none; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgb(14, 107, 168);">
+      <div style="background: rgba(255,255,255,0.9); border: 1px solid rgb(202, 235, 251); border-radius: 10px; padding: 10px 14px; box-shadow: 0 10px 30px rgba(14,107,168,0.08); backdrop-filter: blur(6px);">
+        <div style="color: rgb(107, 114, 128);">// test</div>
+        <div><span style="color: rgb(190, 24, 93);">expect</span>(code).<span style="color: rgb(14, 107, 168);">toBeStable</span>()</div>
+      </div>
+    </div>
+
+    <div class="float-decor hero-ai-decor" style="position: absolute; bottom: 180px; left: 44%; z-index: 0; opacity: 0.75; pointer-events: none;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgb(14, 107, 168); color: #fff; border-radius: 999px; padding: 8px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; box-shadow: 0 12px 28px rgba(14,107,168,0.3);">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.09 6.26L20 9l-5 3.5 1.5 7-4.5-4-4.5 4 1.5-7L4 9l5.91-.74z"/></svg>
+        AI-POWERED
+      </div>
+    </div>
+
     <div data-dc-tpl="20" style="position: relative; max-width: 1280px; margin: 0px auto; padding: 100px 80px 140px; z-index: 1;">
       <div data-dc-tpl="21" style="display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: center;">
 
@@ -285,7 +413,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
           </h1>
 
           <p data-dc-tpl="29" class="anim-3" style="max-width: 52ch; font-size: 19px; line-height: 1.55; color: rgb(75, 85, 99); margin: 0px 0px 44px; font-weight: 400;">
-            <span class="sc-interp">Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end — so the thing that ships works, and keeps working.</span>
+            <span class="sc-interp">QA Engineer with real backend expertise. I don't just test code, I understand it. I design automated testing frameworks, build Laravel APIs, and leverage AI to deliver broader coverage and higher-quality results in less time.</span>
           </p>
 
           <div data-dc-tpl="30" class="anim-4" style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
@@ -328,12 +456,12 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
         <div data-dc-tpl="41" class="fade-slow" style="display: flex; flex-direction: column; align-items: center; gap: 28px;">
           <div data-dc-tpl="42" style="position: relative;">
             
-            <svg data-dc-tpl="43" width="260" height="260" viewBox="0 0 260 260" class="float-decor" style="position: absolute; top: -40px; left: -40px; z-index: 0;">
-              <circle data-dc-tpl="44" cx="130" cy="130" r="120" fill="none" stroke="#a6e1fa" stroke-width="1.5" stroke-dasharray="2 8" stroke-linecap="round"></circle>
+            <svg data-dc-tpl="43" width="380" height="380" viewBox="0 0 380 380" class="float-decor profile-circle-ring" style="position: absolute; top: -40px; left: -40px; z-index: 0;">
+              <circle data-dc-tpl="44" cx="190" cy="190" r="180" fill="none" stroke="#a6e1fa" stroke-width="1.5" stroke-dasharray="2 8" stroke-linecap="round"></circle>
             </svg>
-            
-            <div data-dc-tpl="45" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, rgb(14, 107, 168) 0%, rgb(10, 36, 114) 60%, rgb(0, 7, 45) 100%); display: flex; align-items: center; justify-content: center; box-shadow: rgba(10, 36, 114, 0.28) 0px 24px 48px; z-index: 1;">
-              <span data-dc-tpl="46" style="font-family: Figtree; font-size: 82px; font-weight: 600; color: rgb(255, 255, 255); letter-spacing: -0.05em;">KM</span>
+
+            <div data-dc-tpl="45" class="profile-circle" style="position: relative; width: 300px; height: 300px; border-radius: 50%; background: linear-gradient(135deg, rgb(14, 107, 168) 0%, rgb(10, 36, 114) 60%, rgb(0, 7, 45) 100%); display: flex; align-items: center; justify-content: center; box-shadow: rgba(10, 36, 114, 0.28) 0px 24px 48px; z-index: 1; overflow: hidden;">
+              <img src="Foto profesional.jpeg" alt="Karina Montero" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; border-radius: 50%; display: block;">
               
               <div data-dc-tpl="47" style="position: absolute; bottom: 4px; right: 4px; width: 54px; height: 54px; border-radius: 50%; background: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; box-shadow: rgba(0, 7, 45, 0.18) 0px 6px 14px;">
                 <svg data-dc-tpl="48" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline data-dc-tpl="49" points="20 6 9 17 4 12"></polyline></svg>
@@ -344,7 +472,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
           
           <div data-dc-tpl="50" style="width: 100%; max-width: 320px; padding: 24px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; box-shadow: rgba(0, 7, 45, 0.04) 0px 10px 30px;">
             <div data-dc-tpl="51" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.1em; color: rgb(107, 114, 128); margin-bottom: 10px; text-transform: uppercase;"><span class="sc-interp">ABOUT ME</span></div>
-            <div data-dc-tpl="52" style="font-size: 15px; line-height: 1.45; color: rgb(10, 36, 114); font-weight: 500; margin-bottom: 20px;"><span class="sc-interp">Dev + QA, bridging both sides to ship software that lasts.</span></div>
+            <div data-dc-tpl="52" style="font-size: 15px; line-height: 1.45; color: rgb(10, 36, 114); font-weight: 500; margin-bottom: 20px;"><span class="sc-interp">QA Engineer + Backend Developer, powered by AI to ship software that works.</span></div>
 
             
             <div data-dc-tpl="53" style="display: flex; gap: 8px; margin-bottom: 16px;">
@@ -354,16 +482,16 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               <a data-dc-tpl="58" href="tel:+18297737011" aria-label="Phone" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
                 <svg data-dc-tpl="59" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="60" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
               </a>
-              <a data-dc-tpl="61" href="#" aria-label="LinkedIn" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+              <a data-dc-tpl="61" href="https://www.linkedin.com/in/karina-montero-leonardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
                 <svg data-dc-tpl="62" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="63" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path></svg>
               </a>
-              <a data-dc-tpl="64" href="#" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+              <a data-dc-tpl="64" href="https://github.com/karina0724" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
                 <svg data-dc-tpl="65" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="66" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
               </a>
             </div>
 
             
-            <a data-dc-tpl="67" href="#" class="btn-ghost" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; background: rgb(240, 247, 251); color: rgb(10, 36, 114); border: 1px solid rgb(214, 227, 238); border-radius: 10px; font-size: 13px; font-weight: 500;">
+            <a data-dc-tpl="67" href="Karina Montero Leonardo CV_EN.pdf" download data-cv-link data-cv-en="Karina Montero Leonardo CV_EN.pdf" data-cv-es="Karina Montero Leonardo CV.pdf" class="btn-ghost" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; background: rgb(240, 247, 251); color: rgb(10, 36, 114); border: 1px solid rgb(214, 227, 238); border-radius: 10px; font-size: 13px; font-weight: 500;">
               <svg data-dc-tpl="68" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="69" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline data-dc-tpl="70" points="7 10 12 15 17 10"></polyline><line data-dc-tpl="71" x1="12" y1="15" x2="12" y2="3"></line></svg>
               <span class="sc-interp">Download CV</span>
             </a>
@@ -380,10 +508,10 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
         <div data-dc-tpl="75">
           <div data-dc-tpl="76" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); margin-bottom: 20px; font-weight: 500;">01 / <span class="sc-interp">SERVICES</span></div>
           <h2 data-dc-tpl="77" style="font-family: Figtree; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45); max-width: 20ch;">
-            <span class="sc-interp">What I take on for freelance.</span>
+            <span class="sc-interp">What I bring to your product.</span>
           </h2>
         </div>
-        <p data-dc-tpl="78" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.6; margin: 0px; max-width: 42ch;"><span class="sc-interp">Backend, frontend, test automation. The three sides of shipping software that actually works.</span></p>
+        <p data-dc-tpl="78" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.6; margin: 0px; max-width: 42ch;"><span class="sc-interp">Quality assurance, backend engineering, and AI-assisted delivery. Everything you need to launch confident, scalable products.</span></p>
       </div>
 
       <div data-dc-tpl="79" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
@@ -402,8 +530,8 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </div>
               <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">001</span></div>
             </div>
-            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Backend development</span></h3>
-            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Laravel and PHP apps built with Clean Code and the Repository Pattern. MySQL and MariaDB modelling. REST APIs the frontend can trust.</span></p>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">QA &amp; Test Automation</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Robust automation frameworks in Playwright and Cypress. End-to-end, API and parallel execution. ISTQB CTFL 4.0 certified, so quality is built in from day one.</span></p>
           </div>
         
           <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
@@ -420,8 +548,8 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </div>
               <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">002</span></div>
             </div>
-            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Frontend development</span></h3>
-            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Interfaces in JavaScript and TypeScript, modern CSS and SASS. jQuery when a legacy codebase calls for it.</span></p>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Backend Development</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Scalable PHP and Laravel APIs with Clean Code and the Repository Pattern. Real-time messaging, analytics and payment integrations that just work.</span></p>
           </div>
         
           <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
@@ -438,8 +566,8 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </div>
               <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">003</span></div>
             </div>
-            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Test automation</span></h3>
-            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">End-to-end suites in Cypress and Playwright. API tests with parallelism. Katalon when the team is standardised on it.</span></p>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">AI-Assisted Delivery</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">I leverage AI tools to accelerate development, expand test coverage, and ship better results in less time. More value, same budget.</span></p>
           </div>
         
           <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
@@ -456,8 +584,8 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </div>
               <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">004</span></div>
             </div>
-            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Performance testing</span></h3>
-            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Load and stress profiles with JMeter. Measuring where things actually bend, documenting it so the fix lands right.</span></p>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Performance Testing</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Load and stress testing with JMeter and k6. I pinpoint where your product bends, document the fix path, and keep your users happy under scale.</span></p>
           </div>
         
           <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
@@ -474,8 +602,8 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </div>
               <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">005</span></div>
             </div>
-            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Scraping &amp; data</span></h3>
-            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Pipelines in Selenium with Python, or Playwright. MySQL validations. Geolocation-aware flows when the data needs them.</span></p>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Cloud &amp; DevOps</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Microsoft Azure, DigitalOcean and Docker. CI/CD pipelines in GitHub Actions with automated testing baked in, so every deploy ships confident.</span></p>
           </div>
         
           <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
@@ -492,8 +620,8 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </div>
               <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">006</span></div>
             </div>
-            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Migrations &amp; refactors</span></h3>
-            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Carrying a working codebase to a modern framework without breaking it. Laravel upgrades. Clean Code refactors.</span></p>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Data &amp; Validations</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Database validations with MySQL and MariaDB. Web scraping and geolocation testing with Selenium and Playwright. Trustworthy data, every time.</span></p>
           </div>
         
       </div>
@@ -515,7 +643,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
         
           <div data-dc-tpl="124" class="exp-row" style="padding: 44px 24px 44px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 180px 1fr 240px; gap: 48px; align-items: start; border-radius: 8px;">
             <div data-dc-tpl="125">
-              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2025 — NOW</span></div>
+              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2025 / NOW</span></div>
               <div data-dc-tpl="127" style="display: inline-flex; align-items: center; gap: 6px; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(107, 114, 128); letter-spacing: 0.06em; margin-top: 10px;">
                 <svg data-dc-tpl="128" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="129" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="130" cx="12" cy="10" r="3"></circle></svg>
                 <span class="sc-interp">SANTO DOMINGO</span>
@@ -543,7 +671,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
         
           <div data-dc-tpl="124" class="exp-row" style="padding: 44px 24px 44px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 180px 1fr 240px; gap: 48px; align-items: start; border-radius: 8px;">
             <div data-dc-tpl="125">
-              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2021 — 2025</span></div>
+              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2021 / 2025</span></div>
               <div data-dc-tpl="127" style="display: inline-flex; align-items: center; gap: 6px; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(107, 114, 128); letter-spacing: 0.06em; margin-top: 10px;">
                 <svg data-dc-tpl="128" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="129" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="130" cx="12" cy="10" r="3"></circle></svg>
                 <span class="sc-interp">SANTO DOMINGO</span>
@@ -577,7 +705,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
         
           <div data-dc-tpl="124" class="exp-row" style="padding: 44px 24px 44px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 180px 1fr 240px; gap: 48px; align-items: start; border-radius: 8px;">
             <div data-dc-tpl="125">
-              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2024 — 2025</span></div>
+              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2024 / 2025</span></div>
               <div data-dc-tpl="127" style="display: inline-flex; align-items: center; gap: 6px; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(107, 114, 128); letter-spacing: 0.06em; margin-top: 10px;">
                 <svg data-dc-tpl="128" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="129" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="130" cx="12" cy="10" r="3"></circle></svg>
                 <span class="sc-interp">SANTO DOMINGO</span>
@@ -947,15 +1075,15 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
   
   <section data-dc-tpl="189" id="about" style="padding: 120px 0px; background: rgb(255, 255, 255);">
     <div data-dc-tpl="190" style="max-width: 1280px; margin: 0px auto; padding: 0px 80px;">
-      <div data-dc-tpl="191" style="display: grid; grid-template-columns: 1fr 1fr; gap: 100px;">
+      <div data-dc-tpl="191" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start;">
 
         <div data-dc-tpl="192">
           <div data-dc-tpl="193" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); margin-bottom: 20px; font-weight: 500;">04 / <span class="sc-interp">ABOUT</span></div>
           <h2 data-dc-tpl="194" style="font-family: Figtree; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em; font-weight: 600; margin: 0px 0px 36px; color: rgb(0, 7, 45); max-width: 14ch;">
-            <span class="sc-interp">Between the code and the thing that proves it.</span>
+            <span class="sc-interp">QA that speaks code. Backend that speaks quality.</span>
           </h2>
-          <p data-dc-tpl="195" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.65; margin: 0px 0px 20px; max-width: 48ch;"><span class="sc-interp">I've spent five years at the intersection of building and verifying software. I write Laravel and PHP backends, ship JavaScript interfaces, and automate the tests that keep them honest.</span></p>
-          <p data-dc-tpl="196" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.65; margin: 0px 0px 36px; max-width: 48ch;"><span class="sc-interp">Both sides inform each other — the code I write anticipates how it will be tested, and the tests I write understand how it was built.</span></p>
+          <p data-dc-tpl="195" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.65; margin: 0px 0px 20px; max-width: 48ch;"><span class="sc-interp">I'm a QA Engineer specialized in automated and manual testing, with strong backend development experience that lets me understand code in depth, not just test it, and communicate more effectively with development teams.</span></p>
+          <p data-dc-tpl="196" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.65; margin: 0px 0px 36px; max-width: 48ch;"><span class="sc-interp">I also leverage AI tools to accelerate my work, improve test coverage, and deliver higher-quality results in less time. Your product gets tested smarter, shipped faster, and backed by someone who understands both sides.</span></p>
 
           
           <div data-dc-tpl="197" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgb(230, 237, 244);">
@@ -1011,57 +1139,135 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
                   <div data-dc-tpl="216" style="font-size: 13px; color: rgb(107, 114, 128); line-height: 1.45;"><span class="sc-interp">Spanish native, English B2.</span></div>
                 </div>
               </div>
-            
+
           </div>
         </div>
 
-        
-        <div data-dc-tpl="217" style="display: flex; flex-direction: column; gap: 48px; padding-top: 40px;">
-          <div data-dc-tpl="218">
-            <div data-dc-tpl="219" style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
-              <svg data-dc-tpl="220" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="221" d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path data-dc-tpl="222" d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-              <div data-dc-tpl="223" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); font-weight: 500;"><span class="sc-interp">EDUCATION</span></div>
+
+        <div class="about-visual" style="position: sticky; top: 100px;">
+          <div style="position: relative; padding: 36px; background: linear-gradient(135deg, rgb(234, 246, 253) 0%, rgb(255, 255, 255) 100%); border: 1px solid rgb(214, 227, 238); border-radius: 24px; overflow: hidden;">
+
+            <div style="position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(14, 107, 168, 0.12) 0%, transparent 70%); pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -60px; left: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(166, 225, 250, 0.3) 0%, transparent 70%); pointer-events: none;"></div>
+
+
+            <div style="position: relative; display: flex; align-items: center; justify-content: center; gap: 0; margin: 20px 0 36px;">
+
+              <div style="width: 110px; height: 110px; border-radius: 50%; background: rgb(14, 107, 168); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(14,107,168,0.3); margin-right: -24px; z-index: 2;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 4px;"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12l2.5 2.5 4.5-4.5"></path></svg>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;">QA</span>
+              </div>
+
+              <div style="width: 110px; height: 110px; border-radius: 50%; background: rgb(10, 36, 114); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(10,36,114,0.3); z-index: 1;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 4px;"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;">DEV</span>
+              </div>
+
+              <div style="width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, rgb(14, 107, 168), rgb(166, 225, 250)); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(14,107,168,0.35); margin-left: -24px; z-index: 2;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 4px;"><path d="M12 2l2.09 6.26L20 9l-5 3.5 1.5 7-4.5-4-4.5 4 1.5-7L4 9l5.91-.74z"/></svg>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;">AI</span>
+              </div>
             </div>
-            
-              <div data-dc-tpl="225" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
-                <div data-dc-tpl="226">
-                  <div data-dc-tpl="227" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Software Engineering</span></div>
-                  <div data-dc-tpl="228" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">Universidad APEC (UNAPEC)</span></div>
-                </div>
-                <div data-dc-tpl="229" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2022 — 2026</span></div>
+
+            <div style="position: relative; text-align: center; margin-bottom: 32px;">
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: rgb(14, 107, 168); font-weight: 600; margin-bottom: 8px;"><span class="sc-interp">THE INTERSECTION</span></div>
+              <div style="font-size: 18px; font-weight: 600; color: rgb(0, 7, 45); line-height: 1.4;"><span class="sc-interp">Where quality meets code meets intelligence.</span></div>
+            </div>
+
+
+            <div style="position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 24px; border-top: 1px solid rgb(214, 227, 238);">
+              <div style="background: rgb(255,255,255); border: 1px solid rgb(214, 227, 238); border-radius: 12px; padding: 14px;">
+                <div style="font-family: Figtree; font-size: 28px; font-weight: 700; color: rgb(14, 107, 168); line-height: 1; letter-spacing: -0.02em;">5+</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); font-weight: 500; margin-top: 6px;"><span class="sc-interp">YEARS BUILDING</span></div>
               </div>
-            
-              <div data-dc-tpl="225" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
-                <div data-dc-tpl="226">
-                  <div data-dc-tpl="227" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Software Development Technologist</span></div>
-                  <div data-dc-tpl="228" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">ITLA</span></div>
-                </div>
-                <div data-dc-tpl="229" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2019 — 2021</span></div>
+              <div style="background: rgb(255,255,255); border: 1px solid rgb(214, 227, 238); border-radius: 12px; padding: 14px;">
+                <div style="font-family: Figtree; font-size: 28px; font-weight: 700; color: rgb(14, 107, 168); line-height: 1; letter-spacing: -0.02em;">20+</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); font-weight: 500; margin-top: 6px;"><span class="sc-interp">TECH TOOLS</span></div>
               </div>
-            
+              <div style="background: rgb(255,255,255); border: 1px solid rgb(214, 227, 238); border-radius: 12px; padding: 14px;">
+                <div style="font-family: Figtree; font-size: 28px; font-weight: 700; color: rgb(14, 107, 168); line-height: 1; letter-spacing: -0.02em;">ISTQB</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); font-weight: 500; margin-top: 6px;"><span class="sc-interp">CTFL 4.0 CERTIFIED</span></div>
+              </div>
+              <div style="background: rgb(255,255,255); border: 1px solid rgb(214, 227, 238); border-radius: 12px; padding: 14px;">
+                <div style="font-family: Figtree; font-size: 28px; font-weight: 700; color: rgb(14, 107, 168); line-height: 1; letter-spacing: -0.02em;">AI</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); font-weight: 500; margin-top: 6px;"><span class="sc-interp">POWERED WORKFLOW</span></div>
+              </div>
+            </div>
           </div>
-          <div data-dc-tpl="230">
-            <div data-dc-tpl="231" style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
-              <svg data-dc-tpl="232" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-dc-tpl="233" cx="12" cy="8" r="6"></circle><path data-dc-tpl="234" d="M9 13.6V22l3-2 3 2v-8.4"></path></svg>
-              <div data-dc-tpl="235" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); font-weight: 500;"><span class="sc-interp">CERTIFICATIONS</span></div>
+
+
+          <div style="margin-top: 20px; padding: 20px 24px; background: rgb(10, 36, 114); color: #fff; border-radius: 20px; display: flex; align-items: center; gap: 16px;">
+            <div style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px; background: rgba(166, 225, 250, 0.2); display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(166, 225, 250)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
             </div>
-            
-              <div data-dc-tpl="237" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
-                <div data-dc-tpl="238">
-                  <div data-dc-tpl="239" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">ISTQB CTFL 4.0</span></div>
-                  <div data-dc-tpl="240" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">Certified Tester, Foundation Level</span></div>
-                </div>
-                <div data-dc-tpl="241" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2025</span></div>
-              </div>
-            
-              <div data-dc-tpl="237" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
-                <div data-dc-tpl="238">
-                  <div data-dc-tpl="239" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Cybersecurity Fundamentals</span></div>
-                  <div data-dc-tpl="240" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">Universidad APEC (UNAPEC)</span></div>
-                </div>
-                <div data-dc-tpl="241" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2026</span></div>
-              </div>
-            
+            <div style="flex-grow: 1;">
+              <div style="font-size: 14px; font-weight: 600; margin-bottom: 2px;"><span class="sc-interp">Faster delivery</span></div>
+              <div style="font-size: 12.5px; color: rgb(207, 223, 233); line-height: 1.4;"><span class="sc-interp">AI-assisted workflows cut delivery time without cutting corners.</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="education" style="padding: 120px 0px; background: rgb(244, 250, 253); border-top: 1px solid rgb(230, 237, 244); border-bottom: 1px solid rgb(230, 237, 244);">
+    <div style="max-width: 1280px; margin: 0px auto; padding: 0px 80px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px;">
+        <div>
+          <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); margin-bottom: 20px; font-weight: 500;">05 / <span class="sc-interp">EDUCATION</span></div>
+          <h2 style="font-family: Figtree; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45); max-width: 20ch;">
+            <span class="sc-interp">Academic background.</span>
+          </h2>
+        </div>
+        <p style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.6; margin: 0px; max-width: 42ch;"><span class="sc-interp">Formal training and certifications that back the practice.</span></p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; letter-spacing: 0.1em; color: rgb(14, 107, 168); font-weight: 600;"><span class="sc-interp">DEGREES</span></div>
+          </div>
+
+          <div class="edu-item" style="padding: 24px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 16px; margin-bottom: 16px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+            <div>
+              <div style="font-family: Figtree; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Software Engineering</span></div>
+              <div style="color: rgb(14, 107, 168); font-size: 14px; margin-top: 6px; font-weight: 500;"><span class="sc-interp">Universidad APEC (UNAPEC)</span></div>
+            </div>
+            <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2022 / 2026</span></div>
+          </div>
+
+          <div class="edu-item" style="padding: 24px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 16px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+            <div>
+              <div style="font-family: Figtree; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Software Development Technologist</span></div>
+              <div style="color: rgb(14, 107, 168); font-size: 14px; margin-top: 6px; font-weight: 500;"><span class="sc-interp">ITLA</span></div>
+            </div>
+            <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2019 / 2021</span></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M9 13.6V22l3-2 3 2v-8.4"></path></svg>
+            <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; letter-spacing: 0.1em; color: rgb(14, 107, 168); font-weight: 600;"><span class="sc-interp">CERTIFICATIONS</span></div>
+          </div>
+
+          <div class="edu-item" style="padding: 24px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 16px; margin-bottom: 16px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+            <div>
+              <div style="font-family: Figtree; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">ISTQB CTFL 4.0</span></div>
+              <div style="color: rgb(14, 107, 168); font-size: 14px; margin-top: 6px; font-weight: 500;"><span class="sc-interp">Certified Tester, Foundation Level</span></div>
+            </div>
+            <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2025</span></div>
+          </div>
+
+          <div class="edu-item" style="padding: 24px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 16px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+            <div>
+              <div style="font-family: Figtree; font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Cybersecurity Fundamentals</span></div>
+              <div style="color: rgb(14, 107, 168); font-size: 14px; margin-top: 6px; font-weight: 500;"><span class="sc-interp">Universidad APEC (UNAPEC)</span></div>
+            </div>
+            <div style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2026</span></div>
           </div>
         </div>
       </div>
@@ -1075,7 +1281,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
 
     <div data-dc-tpl="245" style="position: relative; max-width: 1280px; margin: 0px auto; padding: 0px 80px; z-index: 1;">
       <div data-dc-tpl="246" style="margin-bottom: 56px;">
-        <div data-dc-tpl="247" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(166, 225, 250); margin-bottom: 24px; font-weight: 500;">05 / <span class="sc-interp">CONTACT</span></div>
+        <div data-dc-tpl="247" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(166, 225, 250); margin-bottom: 24px; font-weight: 500;">06 / <span class="sc-interp">CONTACT</span></div>
         <h2 data-dc-tpl="248" style="font-family: Figtree; font-size: 80px; line-height: 0.98; letter-spacing: -0.04em; font-weight: 600; margin: 0px; max-width: 16ch; color: rgb(255, 255, 255);">
           <span class="sc-interp">Have a project?</span><br data-dc-tpl="249">
           <span data-dc-tpl="250" style="color: rgb(166, 225, 250); font-style: italic; font-weight: 400;"><span class="sc-interp">Let's talk.</span></span>
@@ -1129,7 +1335,7 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
 
         
         <div data-dc-tpl="286" style="padding: 32px 8px; display: flex; flex-direction: column; gap: 28px;">
-          <p data-dc-tpl="287" style="color: rgb(207, 223, 233); font-size: 17px; line-height: 1.6; margin: 0px 0px 8px; max-width: 36ch;"><span class="sc-interp">Open to freelance in 2026 — remote across the Americas or on-site in Santo Domingo.</span></p>
+          <p data-dc-tpl="287" style="color: rgb(207, 223, 233); font-size: 17px; line-height: 1.6; margin: 0px 0px 8px; max-width: 36ch;"><span class="sc-interp">Open to freelance in 2026, remote across the Americas or on-site in Santo Domingo.</span></p>
 
           <div data-dc-tpl="288" style="display: flex; flex-direction: column; gap: 16px;">
             <a data-dc-tpl="289" href="mailto:k07montero@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 14px; color: rgb(255, 255, 255); transition: 220ms;">
@@ -1189,10 +1395,10 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
           <a data-dc-tpl="323" href="mailto:k07montero@gmail.com" aria-label="Email" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
             <svg data-dc-tpl="324" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect data-dc-tpl="325" x="3" y="5" width="18" height="14" rx="2"></rect><path data-dc-tpl="326" d="M3 7l9 6 9-6"></path></svg>
           </a>
-          <a data-dc-tpl="327" href="#" aria-label="LinkedIn" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+          <a data-dc-tpl="327" href="https://www.linkedin.com/in/karina-montero-leonardo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
             <svg data-dc-tpl="328" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="329" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path></svg>
           </a>
-          <a data-dc-tpl="330" href="#" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+          <a data-dc-tpl="330" href="https://github.com/karina0724" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
             <svg data-dc-tpl="331" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="332" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
           </a>
         </div>
@@ -1253,7 +1459,7 @@ class Component extends DCLogic {
           badge: 'AVAILABLE FOR FREELANCE · 2026',
           h1a: 'I build software.',
           h1b: 'I verify it works.',
-          sub: 'Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end — so the thing that ships works, and keeps working.',
+          sub: 'Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end, so the thing that ships works, and keeps working.',
           cta1: 'Start a project',
           cta2: 'See work',
           cv: 'Download CV',
@@ -1284,9 +1490,9 @@ class Component extends DCLogic {
           head: 'Selected work.',
           sub: 'Five years between building and verifying production software across retail, platform and services.',
           items: [
-            { year: '2025 — NOW', loc: 'SANTO DOMINGO', role: 'Quality Assurance Senior', org: 'Grupo Ramos', body: 'Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.', stack: ['Cypress', 'Playwright', 'Postman', 'JMeter', 'Azure DevOps'] },
-            { year: '2021 — 2025', loc: 'SANTO DOMINGO', role: 'Web Developer & QA Automation', org: 'Grupo VOPM', body: 'Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.', stack: ['PHP', 'JavaScript', 'MySQL', 'Docker', 'Cypress', 'Selenium', 'JMeter', 'Jira'] },
-            { year: '2024 — 2025', loc: 'SANTO DOMINGO', role: 'Backend Developer', org: 'Laboriosos', body: 'Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.', stack: ['Laravel 11', 'PHP', 'MariaDB', 'Clean Code'] }
+            { year: '2025 / NOW', loc: 'SANTO DOMINGO', role: 'Quality Assurance Senior', org: 'Grupo Ramos', body: 'Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.', stack: ['Cypress', 'Playwright', 'Postman', 'JMeter', 'Azure DevOps'] },
+            { year: '2021 / 2025', loc: 'SANTO DOMINGO', role: 'Web Developer & QA Automation', org: 'Grupo VOPM', body: 'Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.', stack: ['PHP', 'JavaScript', 'MySQL', 'Docker', 'Cypress', 'Selenium', 'JMeter', 'Jira'] },
+            { year: '2024 / 2025', loc: 'SANTO DOMINGO', role: 'Backend Developer', org: 'Laboriosos', body: 'Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.', stack: ['Laravel 11', 'PHP', 'MariaDB', 'Clean Code'] }
           ]
         },
         tech: {
@@ -1307,12 +1513,12 @@ class Component extends DCLogic {
           num: 'ABOUT',
           head: 'Between the code and the thing that proves it.',
           p1: "I've spent five years at the intersection of building and verifying software. I write Laravel and PHP backends, ship JavaScript interfaces, and automate the tests that keep them honest.",
-          p2: 'Both sides inform each other — the code I write anticipates how it will be tested, and the tests I write understand how it was built.',
+          p2: 'Both sides inform each other, the code I write anticipates how it will be tested, and the tests I write understand how it was built.',
           eduLabel: 'EDUCATION',
           certLabel: 'CERTIFICATIONS',
           edu: [
-            { title: 'Software Engineering', org: 'Universidad APEC (UNAPEC)', year: '2022 — 2026' },
-            { title: 'Software Development Technologist', org: 'ITLA', year: '2019 — 2021' }
+            { title: 'Software Engineering', org: 'Universidad APEC (UNAPEC)', year: '2022 / 2026' },
+            { title: 'Software Development Technologist', org: 'ITLA', year: '2019 / 2021' }
           ],
           certs: [
             { title: 'ISTQB CTFL 4.0', org: 'Certified Tester, Foundation Level', year: '2025' },
@@ -1329,7 +1535,7 @@ class Component extends DCLogic {
           num: 'CONTACT',
           head1: 'Have a project?',
           head2: "Let's talk.",
-          sub: 'Open to freelance in 2026 — remote across the Americas or on-site in Santo Domingo.',
+          sub: 'Open to freelance in 2026, remote across the Americas or on-site in Santo Domingo.',
           formTitle: 'Send a message',
           formSub: 'Fill out the form and I\'ll get back to you within one business day.',
           labelName: 'NAME',
@@ -1360,7 +1566,7 @@ class Component extends DCLogic {
           badge: 'DISPONIBLE PARA FREELANCE · 2026',
           h1a: 'Construyo software.',
           h1b: 'Verifico que funcione.',
-          sub: 'Ingeniera de software y especialista en calidad, basada en Santo Domingo. Diseño, construyo y pruebo aplicaciones web de extremo a extremo — para que lo que se despliega funcione, y siga funcionando.',
+          sub: 'Ingeniera de software y especialista en calidad, basada en Santo Domingo. Diseño, construyo y pruebo aplicaciones web de extremo a extremo, para que lo que se despliega funcione, y siga funcionando.',
           cta1: 'Iniciar un proyecto',
           cta2: 'Ver trabajo',
           cv: 'Descargar CV',
@@ -1391,9 +1597,9 @@ class Component extends DCLogic {
           head: 'Trabajo seleccionado.',
           sub: 'Cinco años entre construir y verificar software en producción, en retail, plataformas y servicios.',
           items: [
-            { year: '2025 — ACTUAL', loc: 'SANTO DOMINGO', role: 'Quality Assurance Senior', org: 'Grupo Ramos', body: 'Definiendo la estrategia de calidad para una plataforma retail usada en toda la República Dominicana. Diseño estándares de pruebas, construyo suites automatizadas para flujos críticos, y expongo riesgos a tiempo para poder actuar sobre ellos.', stack: ['Cypress', 'Playwright', 'Postman', 'JMeter', 'Azure DevOps'] },
-            { year: '2021 — 2025', loc: 'SANTO DOMINGO', role: 'Web Developer y QA Automation', org: 'Grupo VOPM', body: 'Cuatro años y medio construyendo y probando funcionalidades de producción en paralelo. Backends PHP, frontends JavaScript, MySQL y Docker de un lado; Cypress, Selenium, Playwright y JMeter del otro.', stack: ['PHP', 'JavaScript', 'MySQL', 'Docker', 'Cypress', 'Selenium', 'JMeter', 'Jira'] },
-            { year: '2024 — 2025', loc: 'SANTO DOMINGO', role: 'Backend Developer', org: 'Laboriosos', body: 'Lideré la migración de una plataforma activa a Laravel 11, re-arquitecturando con Clean Code y Repository Pattern. Construí funcionalidades backend, integré mensajería en tiempo real, Google Analytics y flujo de pagos.', stack: ['Laravel 11', 'PHP', 'MariaDB', 'Clean Code'] }
+            { year: '2025 / ACTUAL', loc: 'SANTO DOMINGO', role: 'Quality Assurance Senior', org: 'Grupo Ramos', body: 'Definiendo la estrategia de calidad para una plataforma retail usada en toda la República Dominicana. Diseño estándares de pruebas, construyo suites automatizadas para flujos críticos, y expongo riesgos a tiempo para poder actuar sobre ellos.', stack: ['Cypress', 'Playwright', 'Postman', 'JMeter', 'Azure DevOps'] },
+            { year: '2021 / 2025', loc: 'SANTO DOMINGO', role: 'Web Developer y QA Automation', org: 'Grupo VOPM', body: 'Cuatro años y medio construyendo y probando funcionalidades de producción en paralelo. Backends PHP, frontends JavaScript, MySQL y Docker de un lado; Cypress, Selenium, Playwright y JMeter del otro.', stack: ['PHP', 'JavaScript', 'MySQL', 'Docker', 'Cypress', 'Selenium', 'JMeter', 'Jira'] },
+            { year: '2024 / 2025', loc: 'SANTO DOMINGO', role: 'Backend Developer', org: 'Laboriosos', body: 'Lideré la migración de una plataforma activa a Laravel 11, re-arquitecturando con Clean Code y Repository Pattern. Construí funcionalidades backend, integré mensajería en tiempo real, Google Analytics y flujo de pagos.', stack: ['Laravel 11', 'PHP', 'MariaDB', 'Clean Code'] }
           ]
         },
         tech: {
@@ -1414,12 +1620,12 @@ class Component extends DCLogic {
           num: 'SOBRE MÍ',
           head: 'Entre el código y lo que lo prueba.',
           p1: 'He pasado cinco años en la intersección entre construir y verificar software. Escribo backends con Laravel y PHP, desarrollo interfaces con JavaScript, y automatizo las pruebas que los mantienen honestos.',
-          p2: 'Ambos lados se nutren mutuamente — el código que escribo anticipa cómo será probado, y las pruebas que escribo entienden cómo fue construido.',
+          p2: 'Ambos lados se nutren mutuamente, el código que escribo anticipa cómo será probado, y las pruebas que escribo entienden cómo fue construido.',
           eduLabel: 'FORMACIÓN',
           certLabel: 'CERTIFICACIONES',
           edu: [
-            { title: 'Ingeniería en Software', org: 'Universidad APEC (UNAPEC)', year: '2022 — 2026' },
-            { title: 'Tecnólogo en Desarrollo de Software', org: 'ITLA', year: '2019 — 2021' }
+            { title: 'Ingeniería en Software', org: 'Universidad APEC (UNAPEC)', year: '2022 / 2026' },
+            { title: 'Tecnólogo en Desarrollo de Software', org: 'ITLA', year: '2019 / 2021' }
           ],
           certs: [
             { title: 'ISTQB CTFL 4.0', org: 'Certified Tester, Foundation Level', year: '2025' },
@@ -1436,7 +1642,7 @@ class Component extends DCLogic {
           num: 'CONTACTO',
           head1: '¿Tienes un proyecto?',
           head2: 'Hablemos.',
-          sub: 'Disponible para freelance en 2026 — remoto en las Américas o presencial en Santo Domingo.',
+          sub: 'Disponible para freelance en 2026, remoto en las Américas o presencial en Santo Domingo.',
           formTitle: 'Envíame un mensaje',
           formSub: 'Rellena el formulario y te respondo en un día hábil.',
           labelName: 'NOMBRE',
@@ -1492,7 +1698,7 @@ class Component extends DCLogic {
 
 <script>
 (function () {
-  var i18n = {"Services": "Servicios", "Work": "Trabajo", "Tech": "Tecnologías", "About": "Sobre mí", "Get in touch": "Contactar", "AVAILABLE FOR FREELANCE · 2026": "DISPONIBLE PARA FREELANCE · 2026", "I build software.": "Construyo software.", "I verify it works.": "Verifico que funcione.", "Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end — so the thing that ships works, and keeps working.": "Ingeniera de software y especialista en calidad, basada en Santo Domingo. Diseño, construyo y pruebo aplicaciones web de extremo a extremo — para que lo que se despliega funcione, y siga funcionando.", "Start a project": "Iniciar un proyecto", "See work": "Ver trabajo", "Download CV": "Descargar CV", "ABOUT ME": "SOBRE MÍ", "Dev + QA, bridging both sides to ship software that lasts.": "Dev + QA, uniendo ambos lados para desplegar software que dura.", "YEARS SHIPPING": "AÑOS CODEANDO", "TECHNOLOGIES": "TECNOLOGÍAS", "YEARS IN QA": "AÑOS EN QA", "REMOTE READY": "LISTA REMOTO", "SERVICES": "SERVICIOS", "What I take on for freelance.": "Lo que tomo como freelance.", "Backend, frontend, test automation. The three sides of shipping software that actually works.": "Backend, frontend, automatización de pruebas. Los tres lados de desplegar software que realmente funciona.", "Backend development": "Desarrollo backend", "Laravel and PHP apps built with Clean Code and the Repository Pattern. MySQL and MariaDB modelling. REST APIs the frontend can trust.": "Aplicaciones Laravel y PHP con Clean Code y Repository Pattern. Modelado en MySQL y MariaDB. APIs REST en las que el frontend puede confiar.", "Frontend development": "Desarrollo frontend", "Interfaces in JavaScript and TypeScript, modern CSS and SASS. jQuery when a legacy codebase calls for it.": "Interfaces en JavaScript y TypeScript, CSS moderno y SASS. jQuery cuando el código heredado lo requiere.", "Test automation": "Automatización de pruebas", "End-to-end suites in Cypress and Playwright. API tests with parallelism. Katalon when the team is standardised on it.": "Suites end-to-end en Cypress y Playwright. Pruebas de API con paralelismo. Katalon cuando el equipo lo tiene estandarizado.", "Performance testing": "Pruebas de rendimiento", "Load and stress profiles with JMeter. Measuring where things actually bend, documenting it so the fix lands right.": "Perfiles de carga y estrés con JMeter. Mido dónde las cosas realmente ceden, lo documento para que el arreglo caiga donde debe.", "Scraping & data": "Scraping y datos", "Pipelines in Selenium with Python, or Playwright. MySQL validations. Geolocation-aware flows when the data needs them.": "Pipelines en Selenium con Python, o Playwright. Validaciones contra MySQL. Flujos con geolocalización cuando los datos lo requieren.", "Migrations & refactors": "Migraciones y refactors", "Carrying a working codebase to a modern framework without breaking it. Laravel upgrades. Clean Code refactors.": "Llevar un código activo a un framework moderno sin romperlo. Actualizaciones de Laravel. Refactors Clean Code.", "EXPERIENCE": "EXPERIENCIA", "Selected work.": "Trabajo seleccionado.", "Five years between building and verifying production software across retail, platform and services.": "Cinco años entre construir y verificar software en producción, en retail, plataformas y servicios.", "2025 — NOW": "2025 — ACTUAL", "Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.": "Definiendo la estrategia de calidad para una plataforma retail usada en toda la República Dominicana. Diseño estándares de pruebas, construyo suites automatizadas para flujos críticos, y expongo riesgos a tiempo para poder actuar sobre ellos.", "Web Developer & QA Automation": "Web Developer y QA Automation", "Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.": "Cuatro años y medio construyendo y probando funcionalidades de producción en paralelo. Backends PHP, frontends JavaScript, MySQL y Docker de un lado; Cypress, Selenium, Playwright y JMeter del otro.", "Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.": "Lideré la migración de una plataforma activa a Laravel 11, re-arquitecturando con Clean Code y Repository Pattern. Construí funcionalidades backend, integré mensajería en tiempo real, Google Analytics y flujo de pagos.", "The stack I work with.": "El stack con el que trabajo.", "Languages, frameworks and tools I use to design, build, test and ship.": "Lenguajes, frameworks y herramientas que uso para diseñar, construir, probar y desplegar.", "LANGUAGES": "LENGUAJES", "BACKEND & FRAMEWORKS": "BACKEND Y FRAMEWORKS", "DATABASES": "BASES DE DATOS", "TESTING & QA": "PRUEBAS Y QA", "DEVOPS & TOOLS": "DEVOPS Y HERRAMIENTAS", "PROCESS & PM": "PROCESOS Y PM", "ABOUT": "SOBRE MÍ", "Between the code and the thing that proves it.": "Entre el código y lo que lo prueba.", "I've spent five years at the intersection of building and verifying software. I write Laravel and PHP backends, ship JavaScript interfaces, and automate the tests that keep them honest.": "He pasado cinco años en la intersección entre construir y verificar software. Escribo backends con Laravel y PHP, desarrollo interfaces con JavaScript, y automatizo las pruebas que los mantienen honestos.", "Both sides inform each other — the code I write anticipates how it will be tested, and the tests I write understand how it was built.": "Ambos lados se nutren mutuamente — el código que escribo anticipa cómo será probado, y las pruebas que escribo entienden cómo fue construido.", "EDUCATION": "FORMACIÓN", "CERTIFICATIONS": "CERTIFICACIONES", "Software Engineering": "Ingeniería en Software", "Software Development Technologist": "Tecnólogo en Desarrollo de Software", "Cybersecurity Fundamentals": "Diplomado en Ciberseguridad", "Dev + QA mindset": "Mentalidad Dev + QA", "Both sides inform each other.": "Ambos lados se nutren mutuamente.", "Clean Code advocate": "Clean Code", "Readable, testable, maintainable.": "Código legible, probable y mantenible.", "Fast response": "Respuesta rápida", "Within one business day.": "En un día hábil o menos.", "Bilingual": "Bilingüe", "Spanish native, English B2.": "Español nativo, inglés B2.", "CONTACT": "CONTACTO", "Have a project?": "¿Tienes un proyecto?", "Let's talk.": "Hablemos.", "Open to freelance in 2026 — remote across the Americas or on-site in Santo Domingo.": "Disponible para freelance en 2026 — remoto en las Américas o presencial en Santo Domingo.", "Send a message": "Envíame un mensaje", "Fill out the form and I'll get back to you within one business day.": "Rellena el formulario y te respondo en un día hábil.", "NAME": "NOMBRE", "SUBJECT": "ASUNTO", "MESSAGE": "MENSAJE", "Jane Doe": "Juan Pérez", "jane@company.com": "juan@empresa.com", "Looking for a QA engineer…": "Busco un ingeniero QA…", "Tell me about your project, timeline and what you need…": "Cuéntame sobre tu proyecto, tiempos y qué necesitas…", "Opens in your mail app with your message pre-filled.": "Abre tu cliente de correo con el mensaje pre-rellenado.", "Send message": "Enviar mensaje", "Sending…": "Enviando…", "Message sent": "Mensaje enviado", "I reply to every freelance inquiry within one business day.": "Respondo cada consulta freelance en un día hábil.", "PHONE": "TELÉFONO", "LOCATION": "UBICACIÓN", "Dominican Republic": "República Dominicana", "SOFTWARE ENGINEER · QA SPECIALIST": "INGENIERA DE SOFTWARE · ESPECIALISTA QA", "BUILT IN SANTO DOMINGO, DR": "HECHO EN SANTO DOMINGO, RD"};
+  var i18n = {"Services": "Servicios", "Work": "Trabajo", "Tech": "Tecnologías", "About": "Sobre mí", "Education": "Formación", "Academic background.": "Formación académica.", "Formal training and certifications that back the practice.": "Formación formal y certificaciones que respaldan la práctica.", "DEGREES": "TÍTULOS", "Get in touch": "Contactar", "AVAILABLE FOR FREELANCE · 2026": "DISPONIBLE PARA FREELANCE · 2026", "I build software.": "Construyo software.", "I verify it works.": "Verifico que funcione.", "QA Engineer with real backend expertise. I don't just test code, I understand it. I design automated testing frameworks, build Laravel APIs, and leverage AI to deliver broader coverage and higher-quality results in less time.": "Ingeniera QA con experiencia real en backend. No solo pruebo código, lo entiendo. Diseño frameworks de automatización, construyo APIs en Laravel y uso IA para entregar más cobertura y mejores resultados en menos tiempo.", "Start a project": "Iniciar un proyecto", "See work": "Ver trabajo", "Download CV": "Descargar CV", "ABOUT ME": "SOBRE MÍ", "QA Engineer + Backend Developer, powered by AI to ship software that works.": "Ingeniera QA + Desarrolladora Backend, potenciada por IA para entregar software que funciona.", "YEARS SHIPPING": "AÑOS CODEANDO", "TECHNOLOGIES": "TECNOLOGÍAS", "YEARS IN QA": "AÑOS EN QA", "REMOTE READY": "LISTA REMOTO", "SERVICES": "SERVICIOS", "What I bring to your product.": "Lo que aporto a tu producto.", "Quality assurance, backend engineering, and AI-assisted delivery. Everything you need to launch confident, scalable products.": "Aseguramiento de calidad, ingeniería backend y desarrollo potenciado por IA. Todo lo que necesitas para lanzar productos confiables y escalables.", "QA & Test Automation": "QA y Automatización", "Robust automation frameworks in Playwright and Cypress. End-to-end, API and parallel execution. ISTQB CTFL 4.0 certified, so quality is built in from day one.": "Frameworks robustos de automatización en Playwright y Cypress. End-to-end, API y ejecución paralela. Certificada ISTQB CTFL 4.0, calidad desde el día uno.", "Backend Development": "Desarrollo Backend", "Scalable PHP and Laravel APIs with Clean Code and the Repository Pattern. Real-time messaging, analytics and payment integrations that just work.": "APIs escalables en PHP y Laravel con Clean Code y Repository Pattern. Mensajería en tiempo real, analítica e integraciones de pago que funcionan.", "AI-Assisted Delivery": "Entrega Potenciada por IA", "I leverage AI tools to accelerate development, expand test coverage, and ship better results in less time. More value, same budget.": "Uso herramientas de IA para acelerar el desarrollo, ampliar la cobertura de pruebas y entregar mejores resultados en menos tiempo. Más valor, mismo presupuesto.", "Performance Testing": "Pruebas de Rendimiento", "Load and stress testing with JMeter and k6. I pinpoint where your product bends, document the fix path, and keep your users happy under scale.": "Pruebas de carga y estrés con JMeter y k6. Identifico dónde cede tu producto, documento el camino de solución y mantengo a tus usuarios felices bajo escala.", "Cloud & DevOps": "Cloud y DevOps", "Microsoft Azure, DigitalOcean and Docker. CI/CD pipelines in GitHub Actions with automated testing baked in, so every deploy ships confident.": "Microsoft Azure, DigitalOcean y Docker. Pipelines CI/CD en GitHub Actions con pruebas automatizadas integradas, para que cada despliegue salga seguro.", "Data & Validations": "Datos y Validaciones", "Database validations with MySQL and MariaDB. Web scraping and geolocation testing with Selenium and Playwright. Trustworthy data, every time.": "Validaciones de base de datos con MySQL y MariaDB. Web scraping y pruebas de geolocalización con Selenium y Playwright. Datos confiables, siempre.", "EXPERIENCE": "EXPERIENCIA", "Selected work.": "Trabajo seleccionado.", "Five years between building and verifying production software across retail, platform and services.": "Cinco años entre construir y verificar software en producción, en retail, plataformas y servicios.", "2025 / NOW": "2025 / ACTUAL", "Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.": "Definiendo la estrategia de calidad para una plataforma retail usada en toda la República Dominicana. Diseño estándares de pruebas, construyo suites automatizadas para flujos críticos, y expongo riesgos a tiempo para poder actuar sobre ellos.", "Web Developer & QA Automation": "Web Developer y QA Automation", "Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.": "Cuatro años y medio construyendo y probando funcionalidades de producción en paralelo. Backends PHP, frontends JavaScript, MySQL y Docker de un lado; Cypress, Selenium, Playwright y JMeter del otro.", "Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.": "Lideré la migración de una plataforma activa a Laravel 11, re-arquitecturando con Clean Code y Repository Pattern. Construí funcionalidades backend, integré mensajería en tiempo real, Google Analytics y flujo de pagos.", "The stack I work with.": "El stack con el que trabajo.", "Languages, frameworks and tools I use to design, build, test and ship.": "Lenguajes, frameworks y herramientas que uso para diseñar, construir, probar y desplegar.", "LANGUAGES": "LENGUAJES", "BACKEND & FRAMEWORKS": "BACKEND Y FRAMEWORKS", "DATABASES": "BASES DE DATOS", "TESTING & QA": "PRUEBAS Y QA", "DEVOPS & TOOLS": "DEVOPS Y HERRAMIENTAS", "PROCESS & PM": "PROCESOS Y PM", "ABOUT": "SOBRE MÍ", "QA that speaks code. Backend that speaks quality.": "QA que habla código. Backend que habla calidad.", "I'm a QA Engineer specialized in automated and manual testing, with strong backend development experience that lets me understand code in depth, not just test it, and communicate more effectively with development teams.": "Soy Ingeniera QA especializada en pruebas automatizadas y manuales, con sólida experiencia en desarrollo backend que me permite entender el código a profundidad, no solo probarlo, y comunicarme de forma más efectiva con los equipos de desarrollo.", "I also leverage AI tools to accelerate my work, improve test coverage, and deliver higher-quality results in less time. Your product gets tested smarter, shipped faster, and backed by someone who understands both sides.": "Además uso herramientas de IA para acelerar mi trabajo, mejorar la cobertura de pruebas y entregar resultados de mayor calidad en menos tiempo. Tu producto se prueba de forma más inteligente, se despliega más rápido y queda respaldado por alguien que entiende ambos lados.", "EDUCATION": "FORMACIÓN", "CERTIFICATIONS": "CERTIFICACIONES", "THE INTERSECTION": "LA INTERSECCIÓN", "Where quality meets code meets intelligence.": "Donde calidad, código e inteligencia se encuentran.", "YEARS BUILDING": "AÑOS CONSTRUYENDO", "TECH TOOLS": "HERRAMIENTAS", "CTFL 4.0 CERTIFIED": "CTFL 4.0 CERTIFICADA", "POWERED WORKFLOW": "FLUJO POTENCIADO", "Faster delivery": "Entrega más rápida", "AI-assisted workflows cut delivery time without cutting corners.": "Flujos asistidos por IA que reducen tiempos sin sacrificar calidad.", "Software Engineering": "Ingeniería en Software", "Software Development Technologist": "Tecnólogo en Desarrollo de Software", "Cybersecurity Fundamentals": "Diplomado en Ciberseguridad", "Dev + QA mindset": "Mentalidad Dev + QA", "Both sides inform each other.": "Ambos lados se nutren mutuamente.", "Clean Code advocate": "Clean Code", "Readable, testable, maintainable.": "Código legible, probable y mantenible.", "Fast response": "Respuesta rápida", "Within one business day.": "En un día hábil o menos.", "Bilingual": "Bilingüe", "Spanish native, English B2.": "Español nativo, inglés B2.", "CONTACT": "CONTACTO", "Have a project?": "¿Tienes un proyecto?", "Let's talk.": "Hablemos.", "Open to freelance in 2026, remote across the Americas or on-site in Santo Domingo.": "Disponible para freelance en 2026, remoto en las Américas o presencial en Santo Domingo.", "Send a message": "Envíame un mensaje", "Fill out the form and I'll get back to you within one business day.": "Rellena el formulario y te respondo en un día hábil.", "NAME": "NOMBRE", "SUBJECT": "ASUNTO", "MESSAGE": "MENSAJE", "Jane Doe": "Juan Pérez", "jane@company.com": "juan@empresa.com", "Looking for a QA engineer…": "Busco un ingeniero QA…", "Tell me about your project, timeline and what you need…": "Cuéntame sobre tu proyecto, tiempos y qué necesitas…", "Opens in your mail app with your message pre-filled.": "Abre tu cliente de correo con el mensaje pre-rellenado.", "Send message": "Enviar mensaje", "Sending…": "Enviando…", "Message sent": "Mensaje enviado", "I reply to every freelance inquiry within one business day.": "Respondo cada consulta freelance en un día hábil.", "PHONE": "TELÉFONO", "LOCATION": "UBICACIÓN", "Dominican Republic": "República Dominicana", "SOFTWARE ENGINEER · QA SPECIALIST": "INGENIERA DE SOFTWARE · ESPECIALISTA QA", "BUILT IN SANTO DOMINGO, DR": "HECHO EN SANTO DOMINGO, RD"};
   var LS_KEY = 'portafolio.lang';
   var currentLang = 'en';
   var textCache = []; // { node, en, es }
@@ -1543,6 +1749,13 @@ class Component extends DCLogic {
         el.style.color = 'rgb(156, 163, 175)';
       }
     });
+
+    document.querySelectorAll('[data-cv-link]').forEach(function (el) {
+      var en = el.getAttribute('data-cv-en');
+      var es = el.getAttribute('data-cv-es');
+      el.setAttribute('href', currentLang === 'es' ? es : en);
+    });
+
     document.documentElement.lang = currentLang;
     try { localStorage.setItem(LS_KEY, currentLang); } catch (e) {}
   }
