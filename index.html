@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karina Montero — Software Engineer & QA Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  
+/* ---- */
+/* latin-ext */
+
+/* latin */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* greek */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+/* cyrillic-ext */
+
+/* cyrillic */
+
+/* greek */
+
+/* vietnamese */
+
+/* latin-ext */
+
+/* latin */
+
+
+/* ---- */
+
+  body { margin: 0; background: #FFFFFF; color: #00072d; font-family: "Figtree", -apple-system, sans-serif; }
+  a { color: #00072d; text-decoration: none; }
+  a:hover { color: #0e6ba8; }
+  button { cursor: pointer; font-family: inherit; border: none; background: transparent; }
+  input, textarea { font-family: inherit; }
+  input::placeholder, textarea::placeholder { color: #9CA3AF; }
+  *:focus-visible { outline: 2px solid #0e6ba8; outline-offset: 3px; }
+  input:focus, textarea:focus { outline: none; }
+
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes pulse { 0%, 100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .anim-1 { animation: riseIn 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .anim-2 { animation: riseIn 800ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both; }
+  .anim-3 { animation: riseIn 800ms cubic-bezier(0.2, 0.7, 0.2, 1) 240ms both; }
+  .anim-4 { animation: riseIn 800ms cubic-bezier(0.2, 0.7, 0.2, 1) 360ms both; }
+  .anim-5 { animation: riseIn 800ms cubic-bezier(0.2, 0.7, 0.2, 1) 480ms both; }
+  .fade-slow { animation: fadeIn 1200ms ease-out 300ms both; }
+
+  .float-decor { animation: float 7s ease-in-out infinite; }
+  .pulse-dot { animation: pulse 2.4s ease-in-out infinite; }
+
+  .btn-primary { transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease; }
+  .btn-primary:hover { background: #0a2472 !important; box-shadow: 0 12px 24px rgba(14, 107, 168, 0.28) !important; transform: translateY(-2px); }
+
+  .btn-ghost { transition: all 220ms ease; }
+  .btn-ghost:hover { background: #F0F7FB !important; border-color: #0e6ba8 !important; color: #0e6ba8 !important; }
+
+  .nav-link { transition: color 180ms ease; }
+  .nav-link:hover { color: #0e6ba8 !important; }
+
+  .card { transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0, 7, 45, 0.08) !important; border-color: #a6e1fa !important; }
+  .card:hover .card-icon { background: #0e6ba8 !important; color: #FFFFFF !important; }
+
+  .exp-row { transition: background 240ms ease; }
+  .exp-row:hover { background: #F8FBFD !important; }
+
+  .chip-tech { transition: all 200ms ease; }
+  .chip-tech:hover { background: #a6e1fa !important; color: #00072d !important; transform: translateY(-2px); border-color: #a6e1fa !important; }
+
+  .chip-tech-dark { transition: all 200ms ease; }
+  .chip-tech-dark:hover { background: #a6e1fa !important; color: #00072d !important; transform: translateY(-2px); border-color: #a6e1fa !important; }
+
+  .marquee-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
+  .marquee-track { display: inline-flex; align-items: center; gap: 56px; white-space: nowrap; animation: marquee 55s linear infinite; }
+  .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+  .form-field { transition: border-color 200ms ease, box-shadow 200ms ease; }
+  .form-field:focus { border-color: #0e6ba8 !important; box-shadow: 0 0 0 4px rgba(14, 107, 168, 0.12) !important; }
+
+  .social-link { transition: all 220ms ease; }
+  .social-link:hover { background: #0e6ba8 !important; color: #FFFFFF !important; border-color: #0e6ba8 !important; transform: translateY(-3px); }
+
+  .edu-item { transition: padding-left 240ms ease; }
+  .edu-item:hover { padding-left: 12px !important; }
+
+  .spinner { animation: spin 800ms linear infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    .float-decor, .pulse-dot, .marquee-track { animation: none !important; }
+  }
+
+</style>
+<style>
+/* --- Interactivity add-ons (hover, focus, smooth scroll) --- */
+html { scroll-behavior: smooth; }
+
+/* Button hovers (override inline styles via !important where needed) */
+.btn-primary { transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease !important; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(14, 107, 168, .35) !important; filter: brightness(1.05); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost { transition: transform .18s ease, border-color .18s ease, background-color .18s ease !important; }
+.btn-ghost:hover { background: rgba(14, 107, 168, .08) !important; border-color: rgb(14, 107, 168) !important; transform: translateY(-2px); }
+
+/* Nav link hover */
+.nav-link { transition: color .18s ease !important; }
+.nav-link:hover { color: rgb(14, 107, 168) !important; }
+
+/* Card hover */
+.card { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease !important; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 7, 45, .08) !important; }
+
+/* Tech chip hover */
+.chip-tech, .chip-tech-dark { transition: transform .18s ease, background-color .18s ease !important; }
+.chip-tech:hover, .chip-tech-dark:hover { transform: translateY(-2px); }
+
+/* Social link hover */
+.social-link { transition: transform .18s ease, color .18s ease, border-color .18s ease !important; }
+.social-link:hover { transform: translateY(-2px); color: rgb(14, 107, 168) !important; }
+
+/* Form field focus */
+.form-field input:focus, .form-field textarea:focus,
+input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offset: 2px; }
+
+/* EN/ES toggle: pointer cursor */
+[data-lang-toggle] { cursor: pointer; user-select: none; }
+[data-lang-toggle]:hover { color: rgb(14, 107, 168) !important; }
+
+/* Marquee animation (if the keyframes were React-driven, keep them going) */
+.marquee-track { animation: marquee-scroll 40s linear infinite; }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+
+/* Fade-in animations (replace the React-driven ones) */
+@keyframes fade-slow {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-slow, .anim-1, .anim-2, .anim-3, .anim-4, .anim-5 {
+  animation: fade-slow .8s ease both;
+}
+.anim-1 { animation-delay: .05s; }
+.anim-2 { animation-delay: .15s; }
+.anim-3 { animation-delay: .30s; }
+.anim-4 { animation-delay: .45s; }
+.anim-5 { animation-delay: .60s; }
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .5; transform: scale(1.4); }
+}
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+/* Float decoration */
+@keyframes float-decor {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.float-decor { animation: float-decor 6s ease-in-out infinite; }
+
+/* Sent-state status chip */
+.form-status { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 13px; font-weight: 600; color: rgb(14, 107, 168); opacity: 0; transition: opacity .25s ease; }
+.form-status.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div id="dc-root"><div class="sc-host" data-sc-name="index"><div data-dc-tpl="2" data-canvas-width="1440" data-canvas-height="5400" style="width: 100%; min-height: 100vh; background: rgb(255, 255, 255); color: rgb(0, 7, 45); font-family: Figtree, -apple-system, sans-serif; box-sizing: border-box;">
+
+  
+  <nav data-dc-tpl="3" style="position: sticky; top: 0px; z-index: 50; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgb(230, 237, 244);">
+    <div data-dc-tpl="4" style="max-width: 1280px; margin: 0px auto; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center;">
+      <a data-dc-tpl="5" href="#top" style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em; color: rgb(0, 7, 45); display: inline-flex; align-items: center; gap: 2px;">
+        Karina Montero<span data-dc-tpl="6" style="color: rgb(14, 107, 168); font-size: 22px; line-height: 0.8;">.</span>
+      </a>
+      <div data-dc-tpl="7" style="display: flex; gap: 36px; align-items: center;">
+        <a data-dc-tpl="8" href="#services" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Services</span></a>
+        <a data-dc-tpl="9" href="#work" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Work</span></a>
+        <a data-dc-tpl="10" href="#tech" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Tech</span></a>
+        <a data-dc-tpl="11" href="#about" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">About</span></a>
+        <div data-dc-tpl="12" style="padding: 6px 14px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; display: inline-flex; gap: 10px; align-items: center; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.08em; margin-left: 8px;">
+          <span data-dc-tpl="13" style="color: rgb(0, 7, 45); font-weight: 500;">EN</span>
+          <span data-dc-tpl="14" style="color: rgb(203, 213, 225);">/</span>
+          <span data-dc-tpl="15" style="color: rgb(156, 163, 175); font-weight: 500;">ES</span>
+        </div>
+        <a data-dc-tpl="16" href="#contact" class="btn-primary" style="padding: 10px 20px; background: rgb(14, 107, 168); color: rgb(255, 255, 255); border-radius: 999px; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+          <span class="sc-interp">Get in touch</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  
+  <section data-dc-tpl="17" id="top" style="position: relative; overflow: hidden;">
+    
+    <div data-dc-tpl="18" class="float-decor" style="position: absolute; top: -120px; right: -140px; width: 540px; height: 540px; border-radius: 50%; background: radial-gradient(circle, rgba(166, 225, 250, 0.55) 0%, rgba(166, 225, 250, 0) 70%); z-index: 0; pointer-events: none;"></div>
+    <div data-dc-tpl="19" style="position: absolute; bottom: -200px; left: -200px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(14, 107, 168, 0.12) 0%, rgba(14, 107, 168, 0) 70%); z-index: 0; pointer-events: none;"></div>
+
+    <div data-dc-tpl="20" style="position: relative; max-width: 1280px; margin: 0px auto; padding: 100px 80px 140px; z-index: 1;">
+      <div data-dc-tpl="21" style="display: grid; grid-template-columns: 7fr 5fr; gap: 80px; align-items: center;">
+
+        
+        <div data-dc-tpl="22">
+          <div data-dc-tpl="23" class="anim-1" style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; background: rgb(234, 246, 253); border: 1px solid rgb(202, 235, 251); border-radius: 999px; margin-bottom: 36px;">
+            <span data-dc-tpl="24" class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block;"></span>
+            <span data-dc-tpl="25" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.08em; color: rgb(10, 36, 114); font-weight: 500;"><span class="sc-interp">AVAILABLE FOR FREELANCE · 2026</span></span>
+          </div>
+
+          <h1 data-dc-tpl="26" class="anim-2" style="font-family: Figtree; font-size: 92px; line-height: 0.98; letter-spacing: -0.045em; font-weight: 600; margin: 0px 0px 36px; color: rgb(0, 7, 45); max-width: 14ch;">
+            <span class="sc-interp">I build software.</span><br data-dc-tpl="27">
+            <span data-dc-tpl="28" style="font-style: italic; font-weight: 400; color: rgb(14, 107, 168);"><span class="sc-interp">I verify it works.</span></span>
+          </h1>
+
+          <p data-dc-tpl="29" class="anim-3" style="max-width: 52ch; font-size: 19px; line-height: 1.55; color: rgb(75, 85, 99); margin: 0px 0px 44px; font-weight: 400;">
+            <span class="sc-interp">Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end — so the thing that ships works, and keeps working.</span>
+          </p>
+
+          <div data-dc-tpl="30" class="anim-4" style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+            <a data-dc-tpl="31" href="#contact" class="btn-primary" style="padding: 16px 28px; background: rgb(14, 107, 168); color: rgb(255, 255, 255); border-radius: 999px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px; box-shadow: rgba(14, 107, 168, 0.2) 0px 6px 16px;">
+              <span class="sc-interp">Start a project</span>
+              <svg data-dc-tpl="32" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line data-dc-tpl="33" x1="5" y1="12" x2="19" y2="12"></line><polyline data-dc-tpl="34" points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a data-dc-tpl="35" href="#work" class="btn-ghost" style="padding: 16px 28px; border: 1px solid rgb(214, 227, 238); color: rgb(0, 7, 45); border-radius: 999px; font-weight: 500; font-size: 15px;">
+              <span class="sc-interp">See work</span>
+            </a>
+          </div>
+
+          
+          <div data-dc-tpl="36" class="anim-5" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 80px; padding-top: 36px; border-top: 1px solid rgb(230, 237, 244);">
+            
+              <div data-dc-tpl="38">
+                <div data-dc-tpl="39" style="font-family: Figtree; font-size: 36px; line-height: 1; letter-spacing: -0.035em; font-weight: 600; margin-bottom: 8px; color: rgb(0, 7, 45);"><span class="sc-interp">5+</span></div>
+                <div data-dc-tpl="40" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.1em; color: rgb(107, 114, 128); font-weight: 500;"><span class="sc-interp">YEARS SHIPPING</span></div>
+              </div>
+            
+              <div data-dc-tpl="38">
+                <div data-dc-tpl="39" style="font-family: Figtree; font-size: 36px; line-height: 1; letter-spacing: -0.035em; font-weight: 600; margin-bottom: 8px; color: rgb(0, 7, 45);"><span class="sc-interp">15+</span></div>
+                <div data-dc-tpl="40" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.1em; color: rgb(107, 114, 128); font-weight: 500;"><span class="sc-interp">TECHNOLOGIES</span></div>
+              </div>
+            
+              <div data-dc-tpl="38">
+                <div data-dc-tpl="39" style="font-family: Figtree; font-size: 36px; line-height: 1; letter-spacing: -0.035em; font-weight: 600; margin-bottom: 8px; color: rgb(0, 7, 45);"><span class="sc-interp">3</span></div>
+                <div data-dc-tpl="40" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.1em; color: rgb(107, 114, 128); font-weight: 500;"><span class="sc-interp">YEARS IN QA</span></div>
+              </div>
+            
+              <div data-dc-tpl="38">
+                <div data-dc-tpl="39" style="font-family: Figtree; font-size: 36px; line-height: 1; letter-spacing: -0.035em; font-weight: 600; margin-bottom: 8px; color: rgb(0, 7, 45);"><span class="sc-interp">100%</span></div>
+                <div data-dc-tpl="40" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.1em; color: rgb(107, 114, 128); font-weight: 500;"><span class="sc-interp">REMOTE READY</span></div>
+              </div>
+            
+          </div>
+        </div>
+
+        
+        <div data-dc-tpl="41" class="fade-slow" style="display: flex; flex-direction: column; align-items: center; gap: 28px;">
+          <div data-dc-tpl="42" style="position: relative;">
+            
+            <svg data-dc-tpl="43" width="260" height="260" viewBox="0 0 260 260" class="float-decor" style="position: absolute; top: -40px; left: -40px; z-index: 0;">
+              <circle data-dc-tpl="44" cx="130" cy="130" r="120" fill="none" stroke="#a6e1fa" stroke-width="1.5" stroke-dasharray="2 8" stroke-linecap="round"></circle>
+            </svg>
+            
+            <div data-dc-tpl="45" style="position: relative; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, rgb(14, 107, 168) 0%, rgb(10, 36, 114) 60%, rgb(0, 7, 45) 100%); display: flex; align-items: center; justify-content: center; box-shadow: rgba(10, 36, 114, 0.28) 0px 24px 48px; z-index: 1;">
+              <span data-dc-tpl="46" style="font-family: Figtree; font-size: 82px; font-weight: 600; color: rgb(255, 255, 255); letter-spacing: -0.05em;">KM</span>
+              
+              <div data-dc-tpl="47" style="position: absolute; bottom: 4px; right: 4px; width: 54px; height: 54px; border-radius: 50%; background: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; box-shadow: rgba(0, 7, 45, 0.18) 0px 6px 14px;">
+                <svg data-dc-tpl="48" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline data-dc-tpl="49" points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+            </div>
+          </div>
+
+          
+          <div data-dc-tpl="50" style="width: 100%; max-width: 320px; padding: 24px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; box-shadow: rgba(0, 7, 45, 0.04) 0px 10px 30px;">
+            <div data-dc-tpl="51" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.1em; color: rgb(107, 114, 128); margin-bottom: 10px; text-transform: uppercase;"><span class="sc-interp">ABOUT ME</span></div>
+            <div data-dc-tpl="52" style="font-size: 15px; line-height: 1.45; color: rgb(10, 36, 114); font-weight: 500; margin-bottom: 20px;"><span class="sc-interp">Dev + QA, bridging both sides to ship software that lasts.</span></div>
+
+            
+            <div data-dc-tpl="53" style="display: flex; gap: 8px; margin-bottom: 16px;">
+              <a data-dc-tpl="54" href="mailto:k07montero@gmail.com" aria-label="Email" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+                <svg data-dc-tpl="55" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect data-dc-tpl="56" x="3" y="5" width="18" height="14" rx="2"></rect><path data-dc-tpl="57" d="M3 7l9 6 9-6"></path></svg>
+              </a>
+              <a data-dc-tpl="58" href="tel:+18297737011" aria-label="Phone" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+                <svg data-dc-tpl="59" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="60" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
+              </a>
+              <a data-dc-tpl="61" href="#" aria-label="LinkedIn" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+                <svg data-dc-tpl="62" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="63" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path></svg>
+              </a>
+              <a data-dc-tpl="64" href="#" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+                <svg data-dc-tpl="65" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="66" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+              </a>
+            </div>
+
+            
+            <a data-dc-tpl="67" href="#" class="btn-ghost" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; background: rgb(240, 247, 251); color: rgb(10, 36, 114); border: 1px solid rgb(214, 227, 238); border-radius: 10px; font-size: 13px; font-weight: 500;">
+              <svg data-dc-tpl="68" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="69" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline data-dc-tpl="70" points="7 10 12 15 17 10"></polyline><line data-dc-tpl="71" x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span class="sc-interp">Download CV</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="72" id="services" style="background: rgb(244, 250, 253); padding: 120px 0px; border-top: 1px solid rgb(230, 237, 244); border-bottom: 1px solid rgb(230, 237, 244);">
+    <div data-dc-tpl="73" style="max-width: 1280px; margin: 0px auto; padding: 0px 80px;">
+      <div data-dc-tpl="74" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px;">
+        <div data-dc-tpl="75">
+          <div data-dc-tpl="76" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); margin-bottom: 20px; font-weight: 500;">01 / <span class="sc-interp">SERVICES</span></div>
+          <h2 data-dc-tpl="77" style="font-family: Figtree; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45); max-width: 20ch;">
+            <span class="sc-interp">What I take on for freelance.</span>
+          </h2>
+        </div>
+        <p data-dc-tpl="78" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.6; margin: 0px; max-width: 42ch;"><span class="sc-interp">Backend, frontend, test automation. The three sides of shipping software that actually works.</span></p>
+      </div>
+
+      <div data-dc-tpl="79" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        
+          <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
+            <div data-dc-tpl="82" style="display: flex; justify-content: space-between; align-items: start;">
+              <div data-dc-tpl="83" class="card-icon" style="width: 52px; height: 52px; border-radius: 14px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center; transition: 300ms;">
+                
+                  <svg data-dc-tpl="85" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse data-dc-tpl="86" cx="12" cy="5" rx="9" ry="3"></ellipse><path data-dc-tpl="87" d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path><path data-dc-tpl="88" d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"></path></svg>
+                
+                
+                
+                
+                
+                
+              </div>
+              <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">001</span></div>
+            </div>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Backend development</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Laravel and PHP apps built with Clean Code and the Repository Pattern. MySQL and MariaDB modelling. REST APIs the frontend can trust.</span></p>
+          </div>
+        
+          <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
+            <div data-dc-tpl="82" style="display: flex; justify-content: space-between; align-items: start;">
+              <div data-dc-tpl="83" class="card-icon" style="width: 52px; height: 52px; border-radius: 14px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center; transition: 300ms;">
+                
+                
+                  <svg data-dc-tpl="90" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline data-dc-tpl="91" points="16 18 22 12 16 6"></polyline><polyline data-dc-tpl="92" points="8 6 2 12 8 18"></polyline></svg>
+                
+                
+                
+                
+                
+              </div>
+              <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">002</span></div>
+            </div>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Frontend development</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Interfaces in JavaScript and TypeScript, modern CSS and SASS. jQuery when a legacy codebase calls for it.</span></p>
+          </div>
+        
+          <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
+            <div data-dc-tpl="82" style="display: flex; justify-content: space-between; align-items: start;">
+              <div data-dc-tpl="83" class="card-icon" style="width: 52px; height: 52px; border-radius: 14px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center; transition: 300ms;">
+                
+                
+                
+                  <svg data-dc-tpl="94" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-dc-tpl="95" cx="12" cy="12" r="9"></circle><path data-dc-tpl="96" d="M8.5 12l2.5 2.5 4.5-4.5"></path></svg>
+                
+                
+                
+                
+              </div>
+              <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">003</span></div>
+            </div>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Test automation</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">End-to-end suites in Cypress and Playwright. API tests with parallelism. Katalon when the team is standardised on it.</span></p>
+          </div>
+        
+          <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
+            <div data-dc-tpl="82" style="display: flex; justify-content: space-between; align-items: start;">
+              <div data-dc-tpl="83" class="card-icon" style="width: 52px; height: 52px; border-radius: 14px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center; transition: 300ms;">
+                
+                
+                
+                
+                  <svg data-dc-tpl="98" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="99" d="M12 20a8 8 0 100-16 8 8 0 000 16z"></path><path data-dc-tpl="100" d="M12 12l4-4"></path><circle data-dc-tpl="101" cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"></circle></svg>
+                
+                
+                
+              </div>
+              <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">004</span></div>
+            </div>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Performance testing</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Load and stress profiles with JMeter. Measuring where things actually bend, documenting it so the fix lands right.</span></p>
+          </div>
+        
+          <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
+            <div data-dc-tpl="82" style="display: flex; justify-content: space-between; align-items: start;">
+              <div data-dc-tpl="83" class="card-icon" style="width: 52px; height: 52px; border-radius: 14px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center; transition: 300ms;">
+                
+                
+                
+                
+                
+                  <svg data-dc-tpl="103" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle data-dc-tpl="104" cx="11" cy="11" r="7"></circle><path data-dc-tpl="105" d="M21 21l-4.35-4.35"></path><path data-dc-tpl="106" d="M11 8v6M8 11h6"></path></svg>
+                
+                
+              </div>
+              <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">005</span></div>
+            </div>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Scraping &amp; data</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Pipelines in Selenium with Python, or Playwright. MySQL validations. Geolocation-aware flows when the data needs them.</span></p>
+          </div>
+        
+          <div data-dc-tpl="81" class="card" style="padding: 32px; background: rgb(255, 255, 255); border: 1px solid rgb(230, 237, 244); border-radius: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 260px;">
+            <div data-dc-tpl="82" style="display: flex; justify-content: space-between; align-items: start;">
+              <div data-dc-tpl="83" class="card-icon" style="width: 52px; height: 52px; border-radius: 14px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center; transition: 300ms;">
+                
+                
+                
+                
+                
+                
+                  <svg data-dc-tpl="108" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline data-dc-tpl="109" points="23 4 23 10 17 10"></polyline><polyline data-dc-tpl="110" points="1 20 1 14 7 14"></polyline><path data-dc-tpl="111" d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"></path></svg>
+                
+              </div>
+              <div data-dc-tpl="112" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(156, 163, 175); letter-spacing: 0.1em; font-weight: 500;"><span class="sc-interp">006</span></div>
+            </div>
+            <h3 data-dc-tpl="113" style="font-family: Figtree; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Migrations &amp; refactors</span></h3>
+            <p data-dc-tpl="114" style="color: rgb(75, 85, 99); font-size: 14.5px; line-height: 1.55; margin: 0px; flex-grow: 1;"><span class="sc-interp">Carrying a working codebase to a modern framework without breaking it. Laravel upgrades. Clean Code refactors.</span></p>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="115" id="work" style="padding: 120px 0px; background: rgb(255, 255, 255);">
+    <div data-dc-tpl="116" style="max-width: 1280px; margin: 0px auto; padding: 0px 80px;">
+      <div data-dc-tpl="117" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 48px;">
+        <div data-dc-tpl="118">
+          <div data-dc-tpl="119" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); margin-bottom: 20px; font-weight: 500;">02 / <span class="sc-interp">EXPERIENCE</span></div>
+          <h2 data-dc-tpl="120" style="font-family: Figtree; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin: 0px; color: rgb(0, 7, 45);"><span class="sc-interp">Selected work.</span></h2>
+        </div>
+        <p data-dc-tpl="121" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.6; margin: 0px; max-width: 42ch;"><span class="sc-interp">Five years between building and verifying production software across retail, platform and services.</span></p>
+      </div>
+
+      <div data-dc-tpl="122">
+        
+          <div data-dc-tpl="124" class="exp-row" style="padding: 44px 24px 44px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 180px 1fr 240px; gap: 48px; align-items: start; border-radius: 8px;">
+            <div data-dc-tpl="125">
+              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2025 — NOW</span></div>
+              <div data-dc-tpl="127" style="display: inline-flex; align-items: center; gap: 6px; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(107, 114, 128); letter-spacing: 0.06em; margin-top: 10px;">
+                <svg data-dc-tpl="128" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="129" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="130" cx="12" cy="10" r="3"></circle></svg>
+                <span class="sc-interp">SANTO DOMINGO</span>
+              </div>
+            </div>
+            <div data-dc-tpl="131">
+              <h3 data-dc-tpl="132" style="font-family: Figtree; font-size: 28px; line-height: 1.15; letter-spacing: -0.025em; font-weight: 600; margin: 0px 0px 6px; color: rgb(0, 7, 45);"><span class="sc-interp">Quality Assurance Senior</span></h3>
+              <div data-dc-tpl="133" style="color: rgb(14, 107, 168); font-size: 15px; font-weight: 500; margin-bottom: 20px;"><span class="sc-interp">Grupo Ramos</span></div>
+              <p data-dc-tpl="134" style="color: rgb(75, 85, 99); font-size: 15.5px; line-height: 1.6; margin: 0px; max-width: 58ch;"><span class="sc-interp">Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.</span></p>
+            </div>
+            <div data-dc-tpl="135" style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 6px;">
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Cypress</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Playwright</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Postman</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">JMeter</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Azure DevOps</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="124" class="exp-row" style="padding: 44px 24px 44px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 180px 1fr 240px; gap: 48px; align-items: start; border-radius: 8px;">
+            <div data-dc-tpl="125">
+              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2021 — 2025</span></div>
+              <div data-dc-tpl="127" style="display: inline-flex; align-items: center; gap: 6px; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(107, 114, 128); letter-spacing: 0.06em; margin-top: 10px;">
+                <svg data-dc-tpl="128" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="129" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="130" cx="12" cy="10" r="3"></circle></svg>
+                <span class="sc-interp">SANTO DOMINGO</span>
+              </div>
+            </div>
+            <div data-dc-tpl="131">
+              <h3 data-dc-tpl="132" style="font-family: Figtree; font-size: 28px; line-height: 1.15; letter-spacing: -0.025em; font-weight: 600; margin: 0px 0px 6px; color: rgb(0, 7, 45);"><span class="sc-interp">Web Developer &amp; QA Automation</span></h3>
+              <div data-dc-tpl="133" style="color: rgb(14, 107, 168); font-size: 15px; font-weight: 500; margin-bottom: 20px;"><span class="sc-interp">Grupo VOPM</span></div>
+              <p data-dc-tpl="134" style="color: rgb(75, 85, 99); font-size: 15.5px; line-height: 1.6; margin: 0px; max-width: 58ch;"><span class="sc-interp">Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.</span></p>
+            </div>
+            <div data-dc-tpl="135" style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 6px;">
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">PHP</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">JavaScript</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">MySQL</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Docker</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Cypress</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Selenium</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">JMeter</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Jira</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="124" class="exp-row" style="padding: 44px 24px 44px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 180px 1fr 240px; gap: 48px; align-items: start; border-radius: 8px;">
+            <div data-dc-tpl="125">
+              <div data-dc-tpl="126" style="font-family: &quot;JetBrains Mono&quot;; font-size: 13px; color: rgb(14, 107, 168); letter-spacing: 0.03em; font-weight: 600;"><span class="sc-interp">2024 — 2025</span></div>
+              <div data-dc-tpl="127" style="display: inline-flex; align-items: center; gap: 6px; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(107, 114, 128); letter-spacing: 0.06em; margin-top: 10px;">
+                <svg data-dc-tpl="128" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="129" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="130" cx="12" cy="10" r="3"></circle></svg>
+                <span class="sc-interp">SANTO DOMINGO</span>
+              </div>
+            </div>
+            <div data-dc-tpl="131">
+              <h3 data-dc-tpl="132" style="font-family: Figtree; font-size: 28px; line-height: 1.15; letter-spacing: -0.025em; font-weight: 600; margin: 0px 0px 6px; color: rgb(0, 7, 45);"><span class="sc-interp">Backend Developer</span></h3>
+              <div data-dc-tpl="133" style="color: rgb(14, 107, 168); font-size: 15px; font-weight: 500; margin-bottom: 20px;"><span class="sc-interp">Laboriosos</span></div>
+              <p data-dc-tpl="134" style="color: rgb(75, 85, 99); font-size: 15.5px; line-height: 1.6; margin: 0px; max-width: 58ch;"><span class="sc-interp">Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.</span></p>
+            </div>
+            <div data-dc-tpl="135" style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 6px;">
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Laravel 11</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">PHP</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">MariaDB</span></span>
+              
+                <span data-dc-tpl="137" class="chip-tech" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(10, 36, 114); padding: 5px 11px; border: 1px solid rgb(214, 227, 238); border-radius: 999px; background: rgb(244, 250, 253); letter-spacing: 0.03em; font-weight: 500;"><span class="sc-interp">Clean Code</span></span>
+              
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="138" id="tech" style="background: rgb(10, 36, 114); color: rgb(255, 255, 255); padding: 120px 0px; position: relative; overflow: hidden;">
+    
+    <div data-dc-tpl="139" style="position: absolute; top: 0px; right: 0px; width: 400px; height: 400px; background-image: radial-gradient(circle, rgba(166, 225, 250, 0.14) 1.5px, transparent 1.5px); background-size: 24px 24px; opacity: 0.6; pointer-events: none;"></div>
+
+    <div data-dc-tpl="140" style="position: relative; max-width: 1280px; margin: 0px auto; padding: 0px 80px; z-index: 1;">
+      <div data-dc-tpl="141" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 56px;">
+        <div data-dc-tpl="142">
+          <div data-dc-tpl="143" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(166, 225, 250); margin-bottom: 20px; font-weight: 500;">03 / <span class="sc-interp">TECHNOLOGIES</span></div>
+          <h2 data-dc-tpl="144" style="font-family: Figtree; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; margin: 0px; color: rgb(255, 255, 255); max-width: 18ch;"><span class="sc-interp">The stack I work with.</span></h2>
+        </div>
+        <p data-dc-tpl="145" style="color: rgb(207, 223, 233); font-size: 17px; line-height: 1.6; margin: 0px; max-width: 42ch;"><span class="sc-interp">Languages, frameworks and tools I use to design, build, test and ship.</span></p>
+      </div>
+
+      
+      <div data-dc-tpl="146" class="marquee-wrap" style="margin: 0px -80px 72px; padding: 32px 0px; border-top: 1px solid rgba(166, 225, 250, 0.18); border-bottom: 1px solid rgba(166, 225, 250, 0.18); background: rgba(0, 0, 0, 0.14);">
+        <div data-dc-tpl="147" class="marquee-track">
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">JavaScript</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">TypeScript</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">PHP</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Python</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Laravel</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">MySQL</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">MariaDB</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Docker</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Kubernetes</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Cypress</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Playwright</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Selenium</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">JMeter</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Postman</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Katalon</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Git</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Jira</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Azure DevOps</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Confluence</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Clean Code</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Scrum</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Agile</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">HTML</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="149" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">CSS</span></span>
+            <span data-dc-tpl="150" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">JavaScript</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">TypeScript</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">PHP</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Python</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Laravel</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">MySQL</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">MariaDB</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Docker</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Kubernetes</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Cypress</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Playwright</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Selenium</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">JMeter</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Postman</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Katalon</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Git</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Jira</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Azure DevOps</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Confluence</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Clean Code</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Scrum</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">Agile</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">HTML</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+            <span data-dc-tpl="152" style="font-family: Figtree; font-size: 36px; font-weight: 500; color: rgb(166, 225, 250); letter-spacing: -0.02em;"><span class="sc-interp">CSS</span></span>
+            <span data-dc-tpl="153" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(14, 107, 168); display: inline-block; flex-shrink: 0;"></span>
+          
+        </div>
+      </div>
+
+      
+      <div data-dc-tpl="154" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        
+          <div data-dc-tpl="156" style="padding: 32px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 20px; backdrop-filter: blur(10px);">
+            <div data-dc-tpl="157" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <div data-dc-tpl="158" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center;">
+                <svg data-dc-tpl="160" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline data-dc-tpl="161" points="16 18 22 12 16 6"></polyline><polyline data-dc-tpl="162" points="8 6 2 12 8 18"></polyline></svg>
+                
+                
+                
+                
+                
+              </div>
+              <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(166, 225, 250); letter-spacing: 0.08em; font-weight: 500;"><span class="sc-interp">LANGUAGES</span></div>
+            </div>
+            <div data-dc-tpl="186" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">JavaScript</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">TypeScript</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">PHP</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Python</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">HTML</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">CSS</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">SASS</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="156" style="padding: 32px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 20px; backdrop-filter: blur(10px);">
+            <div data-dc-tpl="157" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <div data-dc-tpl="158" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center;">
+                
+                <svg data-dc-tpl="164" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="165" d="M4 7h16M4 12h10M4 17h16"></path></svg>
+                
+                
+                
+                
+              </div>
+              <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(166, 225, 250); letter-spacing: 0.08em; font-weight: 500;"><span class="sc-interp">BACKEND &amp; FRAMEWORKS</span></div>
+            </div>
+            <div data-dc-tpl="186" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Laravel</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">jQuery</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Clean Code</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Repository Pattern</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">REST APIs</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="156" style="padding: 32px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 20px; backdrop-filter: blur(10px);">
+            <div data-dc-tpl="157" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <div data-dc-tpl="158" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center;">
+                
+                
+                <svg data-dc-tpl="167" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse data-dc-tpl="168" cx="12" cy="5" rx="9" ry="3"></ellipse><path data-dc-tpl="169" d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"></path><path data-dc-tpl="170" d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"></path></svg>
+                
+                
+                
+              </div>
+              <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(166, 225, 250); letter-spacing: 0.08em; font-weight: 500;"><span class="sc-interp">DATABASES</span></div>
+            </div>
+            <div data-dc-tpl="186" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">MySQL</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">MariaDB</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">SQL</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="156" style="padding: 32px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 20px; backdrop-filter: blur(10px);">
+            <div data-dc-tpl="157" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <div data-dc-tpl="158" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center;">
+                
+                
+                
+                <svg data-dc-tpl="172" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-dc-tpl="173" cx="12" cy="12" r="9"></circle><path data-dc-tpl="174" d="M9 12l2 2 4-4"></path></svg>
+                
+                
+              </div>
+              <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(166, 225, 250); letter-spacing: 0.08em; font-weight: 500;"><span class="sc-interp">TESTING &amp; QA</span></div>
+            </div>
+            <div data-dc-tpl="186" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Cypress</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Playwright</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Selenium</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Postman</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">JMeter</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Katalon</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">ISTQB CTFL</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="156" style="padding: 32px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 20px; backdrop-filter: blur(10px);">
+            <div data-dc-tpl="157" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <div data-dc-tpl="158" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center;">
+                
+                
+                
+                
+                <svg data-dc-tpl="176" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect data-dc-tpl="177" x="3" y="3" width="7" height="7"></rect><rect data-dc-tpl="178" x="14" y="3" width="7" height="7"></rect><rect data-dc-tpl="179" x="3" y="14" width="7" height="7"></rect><rect data-dc-tpl="180" x="14" y="14" width="7" height="7"></rect></svg>
+                
+              </div>
+              <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(166, 225, 250); letter-spacing: 0.08em; font-weight: 500;"><span class="sc-interp">DEVOPS &amp; TOOLS</span></div>
+            </div>
+            <div data-dc-tpl="186" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Docker</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Kubernetes</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Git</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Cloud Basics</span></span>
+              
+            </div>
+          </div>
+        
+          <div data-dc-tpl="156" style="padding: 32px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 20px; backdrop-filter: blur(10px);">
+            <div data-dc-tpl="157" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+              <div data-dc-tpl="158" style="width: 32px; height: 32px; border-radius: 8px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center;">
+                
+                
+                
+                
+                
+                <svg data-dc-tpl="182" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="183" d="M9 11l3 3 8-8"></path><path data-dc-tpl="184" d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h8"></path></svg>
+              </div>
+              <div data-dc-tpl="185" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; color: rgb(166, 225, 250); letter-spacing: 0.08em; font-weight: 500;"><span class="sc-interp">PROCESS &amp; PM</span></div>
+            </div>
+            <div data-dc-tpl="186" style="display: flex; flex-wrap: wrap; gap: 7px;">
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Agile</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Scrum</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Kanban</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Jira</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Azure DevOps</span></span>
+              
+                <span data-dc-tpl="188" class="chip-tech-dark" style="font-family: Figtree; font-size: 13px; padding: 6px 12px; background: rgba(255, 255, 255, 0.05); color: rgb(255, 255, 255); border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08); font-weight: 500;"><span class="sc-interp">Confluence</span></span>
+              
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="189" id="about" style="padding: 120px 0px; background: rgb(255, 255, 255);">
+    <div data-dc-tpl="190" style="max-width: 1280px; margin: 0px auto; padding: 0px 80px;">
+      <div data-dc-tpl="191" style="display: grid; grid-template-columns: 1fr 1fr; gap: 100px;">
+
+        <div data-dc-tpl="192">
+          <div data-dc-tpl="193" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); margin-bottom: 20px; font-weight: 500;">04 / <span class="sc-interp">ABOUT</span></div>
+          <h2 data-dc-tpl="194" style="font-family: Figtree; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em; font-weight: 600; margin: 0px 0px 36px; color: rgb(0, 7, 45); max-width: 14ch;">
+            <span class="sc-interp">Between the code and the thing that proves it.</span>
+          </h2>
+          <p data-dc-tpl="195" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.65; margin: 0px 0px 20px; max-width: 48ch;"><span class="sc-interp">I've spent five years at the intersection of building and verifying software. I write Laravel and PHP backends, ship JavaScript interfaces, and automate the tests that keep them honest.</span></p>
+          <p data-dc-tpl="196" style="color: rgb(75, 85, 99); font-size: 17px; line-height: 1.65; margin: 0px 0px 36px; max-width: 48ch;"><span class="sc-interp">Both sides inform each other — the code I write anticipates how it will be tested, and the tests I write understand how it was built.</span></p>
+
+          
+          <div data-dc-tpl="197" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgb(230, 237, 244);">
+            
+              <div data-dc-tpl="199" style="display: flex; gap: 12px; align-items: start;">
+                <div data-dc-tpl="200" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center;">
+                  <svg data-dc-tpl="202" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="203" d="M12 3l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17.8 5.8 22.3l2.4-7.4L2 10.4h7.6z"></path></svg>
+                  
+                  
+                  
+                </div>
+                <div data-dc-tpl="214">
+                  <div data-dc-tpl="215" style="font-size: 14px; font-weight: 600; color: rgb(0, 7, 45); margin-bottom: 2px;"><span class="sc-interp">Dev + QA mindset</span></div>
+                  <div data-dc-tpl="216" style="font-size: 13px; color: rgb(107, 114, 128); line-height: 1.45;"><span class="sc-interp">Both sides inform each other.</span></div>
+                </div>
+              </div>
+            
+              <div data-dc-tpl="199" style="display: flex; gap: 12px; align-items: start;">
+                <div data-dc-tpl="200" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center;">
+                  
+                  <svg data-dc-tpl="205" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="206" d="M3 12l2-2 4 4 10-10 2 2L9 20z"></path></svg>
+                  
+                  
+                </div>
+                <div data-dc-tpl="214">
+                  <div data-dc-tpl="215" style="font-size: 14px; font-weight: 600; color: rgb(0, 7, 45); margin-bottom: 2px;"><span class="sc-interp">Clean Code advocate</span></div>
+                  <div data-dc-tpl="216" style="font-size: 13px; color: rgb(107, 114, 128); line-height: 1.45;"><span class="sc-interp">Readable, testable, maintainable.</span></div>
+                </div>
+              </div>
+            
+              <div data-dc-tpl="199" style="display: flex; gap: 12px; align-items: start;">
+                <div data-dc-tpl="200" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center;">
+                  
+                  
+                  <svg data-dc-tpl="208" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-dc-tpl="209" cx="12" cy="12" r="9"></circle><path data-dc-tpl="210" d="M12 7v5l3 2"></path></svg>
+                  
+                </div>
+                <div data-dc-tpl="214">
+                  <div data-dc-tpl="215" style="font-size: 14px; font-weight: 600; color: rgb(0, 7, 45); margin-bottom: 2px;"><span class="sc-interp">Fast response</span></div>
+                  <div data-dc-tpl="216" style="font-size: 13px; color: rgb(107, 114, 128); line-height: 1.45;"><span class="sc-interp">Within one business day.</span></div>
+                </div>
+              </div>
+            
+              <div data-dc-tpl="199" style="display: flex; gap: 12px; align-items: start;">
+                <div data-dc-tpl="200" style="flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px; background: rgb(234, 246, 253); color: rgb(14, 107, 168); display: flex; align-items: center; justify-content: center;">
+                  
+                  
+                  
+                  <svg data-dc-tpl="212" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="213" d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"></path></svg>
+                </div>
+                <div data-dc-tpl="214">
+                  <div data-dc-tpl="215" style="font-size: 14px; font-weight: 600; color: rgb(0, 7, 45); margin-bottom: 2px;"><span class="sc-interp">Bilingual</span></div>
+                  <div data-dc-tpl="216" style="font-size: 13px; color: rgb(107, 114, 128); line-height: 1.45;"><span class="sc-interp">Spanish native, English B2.</span></div>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+
+        
+        <div data-dc-tpl="217" style="display: flex; flex-direction: column; gap: 48px; padding-top: 40px;">
+          <div data-dc-tpl="218">
+            <div data-dc-tpl="219" style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+              <svg data-dc-tpl="220" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="221" d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path data-dc-tpl="222" d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <div data-dc-tpl="223" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); font-weight: 500;"><span class="sc-interp">EDUCATION</span></div>
+            </div>
+            
+              <div data-dc-tpl="225" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+                <div data-dc-tpl="226">
+                  <div data-dc-tpl="227" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Software Engineering</span></div>
+                  <div data-dc-tpl="228" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">Universidad APEC (UNAPEC)</span></div>
+                </div>
+                <div data-dc-tpl="229" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2022 — 2026</span></div>
+              </div>
+            
+              <div data-dc-tpl="225" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+                <div data-dc-tpl="226">
+                  <div data-dc-tpl="227" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Software Development Technologist</span></div>
+                  <div data-dc-tpl="228" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">ITLA</span></div>
+                </div>
+                <div data-dc-tpl="229" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2019 — 2021</span></div>
+              </div>
+            
+          </div>
+          <div data-dc-tpl="230">
+            <div data-dc-tpl="231" style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+              <svg data-dc-tpl="232" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e6ba8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle data-dc-tpl="233" cx="12" cy="8" r="6"></circle><path data-dc-tpl="234" d="M9 13.6V22l3-2 3 2v-8.4"></path></svg>
+              <div data-dc-tpl="235" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(14, 107, 168); font-weight: 500;"><span class="sc-interp">CERTIFICATIONS</span></div>
+            </div>
+            
+              <div data-dc-tpl="237" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+                <div data-dc-tpl="238">
+                  <div data-dc-tpl="239" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">ISTQB CTFL 4.0</span></div>
+                  <div data-dc-tpl="240" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">Certified Tester, Foundation Level</span></div>
+                </div>
+                <div data-dc-tpl="241" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2025</span></div>
+              </div>
+            
+              <div data-dc-tpl="237" class="edu-item" style="padding: 22px 0px; border-top: 1px solid rgb(230, 237, 244); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
+                <div data-dc-tpl="238">
+                  <div data-dc-tpl="239" style="font-family: Figtree; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3; color: rgb(0, 7, 45);"><span class="sc-interp">Cybersecurity Fundamentals</span></div>
+                  <div data-dc-tpl="240" style="color: rgb(14, 107, 168); font-size: 13.5px; margin-top: 4px; font-weight: 500;"><span class="sc-interp">Universidad APEC (UNAPEC)</span></div>
+                </div>
+                <div data-dc-tpl="241" style="font-family: &quot;JetBrains Mono&quot;; font-size: 12px; color: rgb(107, 114, 128); white-space: nowrap; letter-spacing: 0.03em;"><span class="sc-interp">2026</span></div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="242" id="contact" style="background: linear-gradient(rgb(10, 36, 114) 0%, rgb(0, 28, 85) 100%); color: rgb(255, 255, 255); padding: 120px 0px; position: relative; overflow: hidden;">
+    <div data-dc-tpl="243" style="position: absolute; top: -200px; left: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(14, 107, 168, 0.4) 0%, transparent 70%); pointer-events: none;"></div>
+    <div data-dc-tpl="244" style="position: absolute; bottom: -150px; right: -150px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(166, 225, 250, 0.14) 0%, transparent 70%); pointer-events: none;"></div>
+
+    <div data-dc-tpl="245" style="position: relative; max-width: 1280px; margin: 0px auto; padding: 0px 80px; z-index: 1;">
+      <div data-dc-tpl="246" style="margin-bottom: 56px;">
+        <div data-dc-tpl="247" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.1em; color: rgb(166, 225, 250); margin-bottom: 24px; font-weight: 500;">05 / <span class="sc-interp">CONTACT</span></div>
+        <h2 data-dc-tpl="248" style="font-family: Figtree; font-size: 80px; line-height: 0.98; letter-spacing: -0.04em; font-weight: 600; margin: 0px; max-width: 16ch; color: rgb(255, 255, 255);">
+          <span class="sc-interp">Have a project?</span><br data-dc-tpl="249">
+          <span data-dc-tpl="250" style="color: rgb(166, 225, 250); font-style: italic; font-weight: 400;"><span class="sc-interp">Let's talk.</span></span>
+        </h2>
+      </div>
+
+      <div data-dc-tpl="251" style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start;">
+
+        
+        <div data-dc-tpl="252" style="padding: 44px; background: rgb(255, 255, 255); border-radius: 24px; box-shadow: rgba(0, 7, 45, 0.3) 0px 24px 60px;">
+          <div data-dc-tpl="253" style="margin-bottom: 32px;">
+            <div data-dc-tpl="254" style="font-family: Figtree; font-size: 22px; font-weight: 600; color: rgb(0, 7, 45); letter-spacing: -0.015em; margin-bottom: 6px;"><span class="sc-interp">Send a message</span></div>
+            <div data-dc-tpl="255" style="color: rgb(107, 114, 128); font-size: 14px;"><span class="sc-interp">Fill out the form and I'll get back to you within one business day.</span></div>
+          </div>
+
+          <form data-dc-tpl="256" style="display: flex; flex-direction: column; gap: 20px;">
+            <div data-dc-tpl="257" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div data-dc-tpl="258">
+                <label data-dc-tpl="259" style="display: block; font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); margin-bottom: 8px; font-weight: 500;"><span class="sc-interp">NAME</span></label>
+                <input data-dc-tpl="260" type="text" required="" placeholder="Jane Doe" class="form-field" value="" style="width: 100%; padding: 14px 16px; border: 1px solid rgb(230, 237, 244); border-radius: 10px; font-size: 15px; color: rgb(0, 7, 45); background: rgb(255, 255, 255); box-sizing: border-box;">
+              </div>
+              <div data-dc-tpl="261" style="position: relative;">
+                <label data-dc-tpl="262" style="display: block; font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); margin-bottom: 8px; font-weight: 500;"><span class="sc-interp">EMAIL</span></label>
+                <input data-dc-tpl="263" type="email" required="" placeholder="jane@company.com" class="form-field" value="" style="width: 100%; padding: 14px 16px; border: 1px solid rgb(230, 237, 244); border-radius: 10px; font-size: 15px; color: rgb(0, 7, 45); background: rgb(255, 255, 255); box-sizing: border-box;">
+              <div data-v-4914bf38=""></div></div>
+            </div>
+
+            <div data-dc-tpl="264">
+              <label data-dc-tpl="265" style="display: block; font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); margin-bottom: 8px; font-weight: 500;"><span class="sc-interp">SUBJECT</span></label>
+              <input data-dc-tpl="266" type="text" required="" placeholder="Looking for a QA engineer…" class="form-field" value="" style="width: 100%; padding: 14px 16px; border: 1px solid rgb(230, 237, 244); border-radius: 10px; font-size: 15px; color: rgb(0, 7, 45); background: rgb(255, 255, 255); box-sizing: border-box;">
+            </div>
+
+            <div data-dc-tpl="267">
+              <label data-dc-tpl="268" style="display: block; font-family: &quot;JetBrains Mono&quot;; font-size: 10px; letter-spacing: 0.08em; color: rgb(107, 114, 128); margin-bottom: 8px; font-weight: 500;"><span class="sc-interp">MESSAGE</span></label>
+              <textarea data-dc-tpl="269" required="" rows="5" placeholder="Tell me about your project, timeline and what you need…" class="form-field" style="width: 100%; padding: 14px 16px; border: 1px solid rgb(230, 237, 244); border-radius: 10px; font-size: 15px; color: rgb(0, 7, 45); background: rgb(255, 255, 255); resize: vertical; min-height: 120px; box-sizing: border-box; line-height: 1.5;"></textarea>
+            </div>
+
+            <div data-dc-tpl="270" style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+              <div data-dc-tpl="271" style="font-size: 12.5px; color: rgb(107, 114, 128); max-width: 32ch;"><span class="sc-interp">Opens in your mail app with your message pre-filled.</span></div>
+              <button data-dc-tpl="272" type="submit" class="btn-primary" style="padding: 14px 26px; background: rgb(14, 107, 168); color: rgb(255, 255, 255); border-radius: 999px; font-weight: 600; font-size: 14.5px; display: inline-flex; align-items: center; gap: 10px; min-width: 160px; justify-content: center;">
+                
+                  <span data-dc-tpl="274"><span class="sc-interp">Send message</span></span>
+                  <svg data-dc-tpl="275" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line data-dc-tpl="276" x1="22" y1="2" x2="11" y2="13"></line><polygon data-dc-tpl="277" points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                
+                
+                
+              </button>
+            </div>
+          </form>
+        </div>
+
+        
+        <div data-dc-tpl="286" style="padding: 32px 8px; display: flex; flex-direction: column; gap: 28px;">
+          <p data-dc-tpl="287" style="color: rgb(207, 223, 233); font-size: 17px; line-height: 1.6; margin: 0px 0px 8px; max-width: 36ch;"><span class="sc-interp">Open to freelance in 2026 — remote across the Americas or on-site in Santo Domingo.</span></p>
+
+          <div data-dc-tpl="288" style="display: flex; flex-direction: column; gap: 16px;">
+            <a data-dc-tpl="289" href="mailto:k07montero@gmail.com" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 14px; color: rgb(255, 255, 255); transition: 220ms;">
+              <div data-dc-tpl="290" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg data-dc-tpl="291" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect data-dc-tpl="292" x="3" y="5" width="18" height="14" rx="2"></rect><path data-dc-tpl="293" d="M3 7l9 6 9-6"></path></svg>
+              </div>
+              <div data-dc-tpl="294" style="flex-grow: 1; min-width: 0px;">
+                <div data-dc-tpl="295" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; color: rgb(166, 225, 250); letter-spacing: 0.1em; margin-bottom: 2px;">EMAIL</div>
+                <div data-dc-tpl="296" style="font-size: 14.5px; font-weight: 500;">k07montero@gmail.com</div>
+              </div>
+            </a>
+
+            <a data-dc-tpl="297" href="tel:+18297737011" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 14px; color: rgb(255, 255, 255); transition: 220ms;">
+              <div data-dc-tpl="298" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg data-dc-tpl="299" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="300" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
+              </div>
+              <div data-dc-tpl="301" style="flex-grow: 1; min-width: 0px;">
+                <div data-dc-tpl="302" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; color: rgb(166, 225, 250); letter-spacing: 0.1em; margin-bottom: 2px;"><span class="sc-interp">PHONE</span></div>
+                <div data-dc-tpl="303" style="font-size: 14.5px; font-weight: 500;">+1 829 773 7011</div>
+              </div>
+            </a>
+
+            <div data-dc-tpl="304" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(166, 225, 250, 0.14); border-radius: 14px; color: rgb(255, 255, 255);">
+              <div data-dc-tpl="305" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(166, 225, 250, 0.14); color: rgb(166, 225, 250); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg data-dc-tpl="306" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-dc-tpl="307" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle data-dc-tpl="308" cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div data-dc-tpl="309" style="flex-grow: 1; min-width: 0px;">
+                <div data-dc-tpl="310" style="font-family: &quot;JetBrains Mono&quot;; font-size: 10px; color: rgb(166, 225, 250); letter-spacing: 0.1em; margin-bottom: 2px;"><span class="sc-interp">LOCATION</span></div>
+                <div data-dc-tpl="311" style="font-size: 14.5px; font-weight: 500;">Santo Domingo, <span class="sc-interp">Dominican Republic</span></div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div data-dc-tpl="312" style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: rgba(166, 225, 250, 0.1); border: 1px solid rgba(166, 225, 250, 0.2); border-radius: 12px; margin-top: 8px;">
+            <span data-dc-tpl="313" class="pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: rgb(166, 225, 250); display: inline-block; flex-shrink: 0;"></span>
+            <div data-dc-tpl="314" style="font-size: 13px; color: rgb(207, 223, 233);"><span class="sc-interp">I reply to every freelance inquiry within one business day.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer data-dc-tpl="315" style="background: rgb(0, 7, 45); color: rgb(255, 255, 255); padding: 48px 0px 36px;">
+    <div data-dc-tpl="316" style="max-width: 1280px; margin: 0px auto; padding: 0px 80px;">
+      <div data-dc-tpl="317" style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;">
+        <div data-dc-tpl="318">
+          <div data-dc-tpl="319" style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 8px;">
+            Karina Montero<span data-dc-tpl="320" style="color: rgb(14, 107, 168);">.</span>
+          </div>
+          <div data-dc-tpl="321" style="font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.08em; color: rgb(166, 181, 205);">
+            <span class="sc-interp">SOFTWARE ENGINEER · QA SPECIALIST</span>
+          </div>
+        </div>
+        <div data-dc-tpl="322" style="display: flex; gap: 10px;">
+          <a data-dc-tpl="323" href="mailto:k07montero@gmail.com" aria-label="Email" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+            <svg data-dc-tpl="324" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect data-dc-tpl="325" x="3" y="5" width="18" height="14" rx="2"></rect><path data-dc-tpl="326" d="M3 7l9 6 9-6"></path></svg>
+          </a>
+          <a data-dc-tpl="327" href="#" aria-label="LinkedIn" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+            <svg data-dc-tpl="328" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="329" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"></path></svg>
+          </a>
+          <a data-dc-tpl="330" href="#" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+            <svg data-dc-tpl="331" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="332" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div data-dc-tpl="333" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.08em; color: rgb(166, 181, 205);">
+        <span data-dc-tpl="334">© 2026 KARINA MONTERO LEONARDO</span>
+        <span data-dc-tpl="335"><span class="sc-interp">BUILT IN SANTO DOMINGO, DR</span></span>
+      </div>
+    </div>
+  </footer></div></div></div>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;en&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;],&quot;section&quot;:&quot;Content&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0e6ba8&quot;,&quot;options&quot;:[&quot;#0e6ba8&quot;,&quot;#0a2472&quot;,&quot;#a6e1fa&quot;,&quot;#00072d&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;section&quot;:&quot;Form&quot;},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:5400}}">
+class Component extends DCLogic {
+  constructor() {
+    super(...arguments);
+    this.state = { fName: '', fEmail: '', fSubject: '', fMessage: '', fStatus: 'idle' };
+    this._handlers = {
+      name: (e) => this.setState({ fName: e.target.value }),
+      email: (e) => this.setState({ fEmail: e.target.value }),
+      subject: (e) => this.setState({ fSubject: e.target.value }),
+      message: (e) => this.setState({ fMessage: e.target.value }),
+      submit: this._submit.bind(this)
+    };
+  }
+  _submit(e) {
+    e.preventDefault();
+    const { fName, fEmail, fSubject, fMessage } = this.state;
+    const endpoint = this.props.formEndpoint;
+    this.setState({ fStatus: 'sending' });
+    const subj = fSubject || 'Freelance inquiry';
+    const body = 'From: ' + fName + ' <' + fEmail + '>\n\n' + fMessage;
+
+    const done = () => {
+      this.setState({ fStatus: 'sent' });
+      setTimeout(() => this.setState({ fStatus: 'idle', fName: '', fEmail: '', fSubject: '', fMessage: '' }), 3200);
+    };
+
+    if (endpoint && endpoint.trim().length > 0) {
+      try {
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name: fName, email: fEmail, subject: subj, message: fMessage })
+        }).then(done).catch(done);
+      } catch (err) { done(); }
+    } else {
+      const url = 'mailto:k07montero@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+      try { window.location.href = url; } catch (err) {}
+      setTimeout(done, 500);
+    }
+  }
+  renderVals() {
+    const lang = this.props.lang || 'en';
+    const accent = this.props.accent || '#0e6ba8';
+    const strings = {
+      en: {
+        nav: { services: 'Services', work: 'Work', tech: 'Tech', about: 'About', contactBtn: 'Get in touch' },
+        hero: {
+          badge: 'AVAILABLE FOR FREELANCE · 2026',
+          h1a: 'I build software.',
+          h1b: 'I verify it works.',
+          sub: 'Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end — so the thing that ships works, and keeps working.',
+          cta1: 'Start a project',
+          cta2: 'See work',
+          cv: 'Download CV',
+          cardLabel: 'ABOUT ME',
+          cardTxt: 'Dev + QA, bridging both sides to ship software that lasts.',
+          stats: [
+            { v: '5+', k: 'YEARS SHIPPING' },
+            { v: '15+', k: 'TECHNOLOGIES' },
+            { v: '3', k: 'YEARS IN QA' },
+            { v: '100%', k: 'REMOTE READY' }
+          ]
+        },
+        services: {
+          num: 'SERVICES',
+          head: 'What I take on for freelance.',
+          sub: 'Backend, frontend, test automation. The three sides of shipping software that actually works.',
+          items: [
+            { n: '001', title: 'Backend development', body: 'Laravel and PHP apps built with Clean Code and the Repository Pattern. MySQL and MariaDB modelling. REST APIs the frontend can trust.', icon0: true },
+            { n: '002', title: 'Frontend development', body: 'Interfaces in JavaScript and TypeScript, modern CSS and SASS. jQuery when a legacy codebase calls for it.', icon1: true },
+            { n: '003', title: 'Test automation', body: 'End-to-end suites in Cypress and Playwright. API tests with parallelism. Katalon when the team is standardised on it.', icon2: true },
+            { n: '004', title: 'Performance testing', body: 'Load and stress profiles with JMeter. Measuring where things actually bend, documenting it so the fix lands right.', icon3: true },
+            { n: '005', title: 'Scraping & data', body: 'Pipelines in Selenium with Python, or Playwright. MySQL validations. Geolocation-aware flows when the data needs them.', icon4: true },
+            { n: '006', title: 'Migrations & refactors', body: 'Carrying a working codebase to a modern framework without breaking it. Laravel upgrades. Clean Code refactors.', icon5: true }
+          ]
+        },
+        work: {
+          num: 'EXPERIENCE',
+          head: 'Selected work.',
+          sub: 'Five years between building and verifying production software across retail, platform and services.',
+          items: [
+            { year: '2025 — NOW', loc: 'SANTO DOMINGO', role: 'Quality Assurance Senior', org: 'Grupo Ramos', body: 'Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.', stack: ['Cypress', 'Playwright', 'Postman', 'JMeter', 'Azure DevOps'] },
+            { year: '2021 — 2025', loc: 'SANTO DOMINGO', role: 'Web Developer & QA Automation', org: 'Grupo VOPM', body: 'Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.', stack: ['PHP', 'JavaScript', 'MySQL', 'Docker', 'Cypress', 'Selenium', 'JMeter', 'Jira'] },
+            { year: '2024 — 2025', loc: 'SANTO DOMINGO', role: 'Backend Developer', org: 'Laboriosos', body: 'Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.', stack: ['Laravel 11', 'PHP', 'MariaDB', 'Clean Code'] }
+          ]
+        },
+        tech: {
+          num: 'TECHNOLOGIES',
+          head: 'The stack I work with.',
+          sub: 'Languages, frameworks and tools I use to design, build, test and ship.',
+          marquee: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'Laravel', 'MySQL', 'MariaDB', 'Docker', 'Kubernetes', 'Cypress', 'Playwright', 'Selenium', 'JMeter', 'Postman', 'Katalon', 'Git', 'Jira', 'Azure DevOps', 'Confluence', 'Clean Code', 'Scrum', 'Agile', 'HTML', 'CSS'],
+          categories: [
+            { label: 'LANGUAGES', items: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'HTML', 'CSS', 'SASS'], i0: true },
+            { label: 'BACKEND & FRAMEWORKS', items: ['Laravel', 'jQuery', 'Clean Code', 'Repository Pattern', 'REST APIs'], i1: true },
+            { label: 'DATABASES', items: ['MySQL', 'MariaDB', 'SQL'], i2: true },
+            { label: 'TESTING & QA', items: ['Cypress', 'Playwright', 'Selenium', 'Postman', 'JMeter', 'Katalon', 'ISTQB CTFL'], i3: true },
+            { label: 'DEVOPS & TOOLS', items: ['Docker', 'Kubernetes', 'Git', 'Cloud Basics'], i4: true },
+            { label: 'PROCESS & PM', items: ['Agile', 'Scrum', 'Kanban', 'Jira', 'Azure DevOps', 'Confluence'], i5: true }
+          ]
+        },
+        about: {
+          num: 'ABOUT',
+          head: 'Between the code and the thing that proves it.',
+          p1: "I've spent five years at the intersection of building and verifying software. I write Laravel and PHP backends, ship JavaScript interfaces, and automate the tests that keep them honest.",
+          p2: 'Both sides inform each other — the code I write anticipates how it will be tested, and the tests I write understand how it was built.',
+          eduLabel: 'EDUCATION',
+          certLabel: 'CERTIFICATIONS',
+          edu: [
+            { title: 'Software Engineering', org: 'Universidad APEC (UNAPEC)', year: '2022 — 2026' },
+            { title: 'Software Development Technologist', org: 'ITLA', year: '2019 — 2021' }
+          ],
+          certs: [
+            { title: 'ISTQB CTFL 4.0', org: 'Certified Tester, Foundation Level', year: '2025' },
+            { title: 'Cybersecurity Fundamentals', org: 'Universidad APEC (UNAPEC)', year: '2026' }
+          ],
+          highlights: [
+            { title: 'Dev + QA mindset', sub: 'Both sides inform each other.', i0: true },
+            { title: 'Clean Code advocate', sub: 'Readable, testable, maintainable.', i1: true },
+            { title: 'Fast response', sub: 'Within one business day.', i2: true },
+            { title: 'Bilingual', sub: 'Spanish native, English B2.', i3: true }
+          ]
+        },
+        contact: {
+          num: 'CONTACT',
+          head1: 'Have a project?',
+          head2: "Let's talk.",
+          sub: 'Open to freelance in 2026 — remote across the Americas or on-site in Santo Domingo.',
+          formTitle: 'Send a message',
+          formSub: 'Fill out the form and I\'ll get back to you within one business day.',
+          labelName: 'NAME',
+          labelEmail: 'EMAIL',
+          labelSubject: 'SUBJECT',
+          labelMsg: 'MESSAGE',
+          phName: 'Jane Doe',
+          phEmail: 'jane@company.com',
+          phSubject: 'Looking for a QA engineer…',
+          phMsg: 'Tell me about your project, timeline and what you need…',
+          disclaimer: 'Opens in your mail app with your message pre-filled.',
+          send: 'Send message',
+          sending: 'Sending…',
+          sent: 'Message sent',
+          response: 'I reply to every freelance inquiry within one business day.',
+          phoneLabel: 'PHONE',
+          locationLabel: 'LOCATION',
+          country: 'Dominican Republic'
+        },
+        footer: {
+          tagline: 'SOFTWARE ENGINEER · QA SPECIALIST',
+          built: 'BUILT IN SANTO DOMINGO, DR'
+        }
+      },
+      es: {
+        nav: { services: 'Servicios', work: 'Trabajo', tech: 'Tecnologías', about: 'Sobre mí', contactBtn: 'Contactar' },
+        hero: {
+          badge: 'DISPONIBLE PARA FREELANCE · 2026',
+          h1a: 'Construyo software.',
+          h1b: 'Verifico que funcione.',
+          sub: 'Ingeniera de software y especialista en calidad, basada en Santo Domingo. Diseño, construyo y pruebo aplicaciones web de extremo a extremo — para que lo que se despliega funcione, y siga funcionando.',
+          cta1: 'Iniciar un proyecto',
+          cta2: 'Ver trabajo',
+          cv: 'Descargar CV',
+          cardLabel: 'SOBRE MÍ',
+          cardTxt: 'Dev + QA, uniendo ambos lados para desplegar software que dura.',
+          stats: [
+            { v: '5+', k: 'AÑOS CODEANDO' },
+            { v: '15+', k: 'TECNOLOGÍAS' },
+            { v: '3', k: 'AÑOS EN QA' },
+            { v: '100%', k: 'LISTA REMOTO' }
+          ]
+        },
+        services: {
+          num: 'SERVICIOS',
+          head: 'Lo que tomo como freelance.',
+          sub: 'Backend, frontend, automatización de pruebas. Los tres lados de desplegar software que realmente funciona.',
+          items: [
+            { n: '001', title: 'Desarrollo backend', body: 'Aplicaciones Laravel y PHP con Clean Code y Repository Pattern. Modelado en MySQL y MariaDB. APIs REST en las que el frontend puede confiar.', icon0: true },
+            { n: '002', title: 'Desarrollo frontend', body: 'Interfaces en JavaScript y TypeScript, CSS moderno y SASS. jQuery cuando el código heredado lo requiere.', icon1: true },
+            { n: '003', title: 'Automatización de pruebas', body: 'Suites end-to-end en Cypress y Playwright. Pruebas de API con paralelismo. Katalon cuando el equipo lo tiene estandarizado.', icon2: true },
+            { n: '004', title: 'Pruebas de rendimiento', body: 'Perfiles de carga y estrés con JMeter. Mido dónde las cosas realmente ceden, lo documento para que el arreglo caiga donde debe.', icon3: true },
+            { n: '005', title: 'Scraping y datos', body: 'Pipelines en Selenium con Python, o Playwright. Validaciones contra MySQL. Flujos con geolocalización cuando los datos lo requieren.', icon4: true },
+            { n: '006', title: 'Migraciones y refactors', body: 'Llevar un código activo a un framework moderno sin romperlo. Actualizaciones de Laravel. Refactors Clean Code.', icon5: true }
+          ]
+        },
+        work: {
+          num: 'EXPERIENCIA',
+          head: 'Trabajo seleccionado.',
+          sub: 'Cinco años entre construir y verificar software en producción, en retail, plataformas y servicios.',
+          items: [
+            { year: '2025 — ACTUAL', loc: 'SANTO DOMINGO', role: 'Quality Assurance Senior', org: 'Grupo Ramos', body: 'Definiendo la estrategia de calidad para una plataforma retail usada en toda la República Dominicana. Diseño estándares de pruebas, construyo suites automatizadas para flujos críticos, y expongo riesgos a tiempo para poder actuar sobre ellos.', stack: ['Cypress', 'Playwright', 'Postman', 'JMeter', 'Azure DevOps'] },
+            { year: '2021 — 2025', loc: 'SANTO DOMINGO', role: 'Web Developer y QA Automation', org: 'Grupo VOPM', body: 'Cuatro años y medio construyendo y probando funcionalidades de producción en paralelo. Backends PHP, frontends JavaScript, MySQL y Docker de un lado; Cypress, Selenium, Playwright y JMeter del otro.', stack: ['PHP', 'JavaScript', 'MySQL', 'Docker', 'Cypress', 'Selenium', 'JMeter', 'Jira'] },
+            { year: '2024 — 2025', loc: 'SANTO DOMINGO', role: 'Backend Developer', org: 'Laboriosos', body: 'Lideré la migración de una plataforma activa a Laravel 11, re-arquitecturando con Clean Code y Repository Pattern. Construí funcionalidades backend, integré mensajería en tiempo real, Google Analytics y flujo de pagos.', stack: ['Laravel 11', 'PHP', 'MariaDB', 'Clean Code'] }
+          ]
+        },
+        tech: {
+          num: 'TECNOLOGÍAS',
+          head: 'El stack con el que trabajo.',
+          sub: 'Lenguajes, frameworks y herramientas que uso para diseñar, construir, probar y desplegar.',
+          marquee: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'Laravel', 'MySQL', 'MariaDB', 'Docker', 'Kubernetes', 'Cypress', 'Playwright', 'Selenium', 'JMeter', 'Postman', 'Katalon', 'Git', 'Jira', 'Azure DevOps', 'Confluence', 'Clean Code', 'Scrum', 'Agile', 'HTML', 'CSS'],
+          categories: [
+            { label: 'LENGUAJES', items: ['JavaScript', 'TypeScript', 'PHP', 'Python', 'HTML', 'CSS', 'SASS'], i0: true },
+            { label: 'BACKEND Y FRAMEWORKS', items: ['Laravel', 'jQuery', 'Clean Code', 'Repository Pattern', 'REST APIs'], i1: true },
+            { label: 'BASES DE DATOS', items: ['MySQL', 'MariaDB', 'SQL'], i2: true },
+            { label: 'PRUEBAS Y QA', items: ['Cypress', 'Playwright', 'Selenium', 'Postman', 'JMeter', 'Katalon', 'ISTQB CTFL'], i3: true },
+            { label: 'DEVOPS Y HERRAMIENTAS', items: ['Docker', 'Kubernetes', 'Git', 'Cloud Basics'], i4: true },
+            { label: 'PROCESOS Y PM', items: ['Agile', 'Scrum', 'Kanban', 'Jira', 'Azure DevOps', 'Confluence'], i5: true }
+          ]
+        },
+        about: {
+          num: 'SOBRE MÍ',
+          head: 'Entre el código y lo que lo prueba.',
+          p1: 'He pasado cinco años en la intersección entre construir y verificar software. Escribo backends con Laravel y PHP, desarrollo interfaces con JavaScript, y automatizo las pruebas que los mantienen honestos.',
+          p2: 'Ambos lados se nutren mutuamente — el código que escribo anticipa cómo será probado, y las pruebas que escribo entienden cómo fue construido.',
+          eduLabel: 'FORMACIÓN',
+          certLabel: 'CERTIFICACIONES',
+          edu: [
+            { title: 'Ingeniería en Software', org: 'Universidad APEC (UNAPEC)', year: '2022 — 2026' },
+            { title: 'Tecnólogo en Desarrollo de Software', org: 'ITLA', year: '2019 — 2021' }
+          ],
+          certs: [
+            { title: 'ISTQB CTFL 4.0', org: 'Certified Tester, Foundation Level', year: '2025' },
+            { title: 'Diplomado en Ciberseguridad', org: 'Universidad APEC (UNAPEC)', year: '2026' }
+          ],
+          highlights: [
+            { title: 'Mentalidad Dev + QA', sub: 'Ambos lados se nutren mutuamente.', i0: true },
+            { title: 'Clean Code', sub: 'Código legible, probable y mantenible.', i1: true },
+            { title: 'Respuesta rápida', sub: 'En un día hábil o menos.', i2: true },
+            { title: 'Bilingüe', sub: 'Español nativo, inglés B2.', i3: true }
+          ]
+        },
+        contact: {
+          num: 'CONTACTO',
+          head1: '¿Tienes un proyecto?',
+          head2: 'Hablemos.',
+          sub: 'Disponible para freelance en 2026 — remoto en las Américas o presencial en Santo Domingo.',
+          formTitle: 'Envíame un mensaje',
+          formSub: 'Rellena el formulario y te respondo en un día hábil.',
+          labelName: 'NOMBRE',
+          labelEmail: 'EMAIL',
+          labelSubject: 'ASUNTO',
+          labelMsg: 'MENSAJE',
+          phName: 'Juan Pérez',
+          phEmail: 'juan@empresa.com',
+          phSubject: 'Busco un ingeniero QA…',
+          phMsg: 'Cuéntame sobre tu proyecto, tiempos y qué necesitas…',
+          disclaimer: 'Abre tu cliente de correo con el mensaje pre-rellenado.',
+          send: 'Enviar mensaje',
+          sending: 'Enviando…',
+          sent: 'Mensaje enviado',
+          response: 'Respondo cada consulta freelance en un día hábil.',
+          phoneLabel: 'TELÉFONO',
+          locationLabel: 'UBICACIÓN',
+          country: 'República Dominicana'
+        },
+        footer: {
+          tagline: 'INGENIERA DE SOFTWARE · ESPECIALISTA QA',
+          built: 'HECHO EN SANTO DOMINGO, RD'
+        }
+      }
+    };
+    const t = strings[lang];
+    const status = this.state.fStatus;
+    return {
+      t,
+      accent,
+      enColor: lang === 'en' ? '#00072d' : '#9CA3AF',
+      esColor: lang === 'es' ? '#00072d' : '#9CA3AF',
+      form: {
+        name: this.state.fName,
+        email: this.state.fEmail,
+        subject: this.state.fSubject,
+        message: this.state.fMessage,
+        onNameChange: this._handlers.name,
+        onEmailChange: this._handlers.email,
+        onSubjectChange: this._handlers.subject,
+        onMessageChange: this._handlers.message,
+        onSubmit: this._handlers.submit,
+        isIdle: status === 'idle',
+        isSending: status === 'sending',
+        isSent: status === 'sent'
+      }
+    };
+  }
+}
+</script>
+
+
+
+<script>
+(function () {
+  var i18n = {"Services": "Servicios", "Work": "Trabajo", "Tech": "Tecnologías", "About": "Sobre mí", "Get in touch": "Contactar", "AVAILABLE FOR FREELANCE · 2026": "DISPONIBLE PARA FREELANCE · 2026", "I build software.": "Construyo software.", "I verify it works.": "Verifico que funcione.", "Software engineer and QA specialist based in Santo Domingo. I design, build and test web applications end to end — so the thing that ships works, and keeps working.": "Ingeniera de software y especialista en calidad, basada en Santo Domingo. Diseño, construyo y pruebo aplicaciones web de extremo a extremo — para que lo que se despliega funcione, y siga funcionando.", "Start a project": "Iniciar un proyecto", "See work": "Ver trabajo", "Download CV": "Descargar CV", "ABOUT ME": "SOBRE MÍ", "Dev + QA, bridging both sides to ship software that lasts.": "Dev + QA, uniendo ambos lados para desplegar software que dura.", "YEARS SHIPPING": "AÑOS CODEANDO", "TECHNOLOGIES": "TECNOLOGÍAS", "YEARS IN QA": "AÑOS EN QA", "REMOTE READY": "LISTA REMOTO", "SERVICES": "SERVICIOS", "What I take on for freelance.": "Lo que tomo como freelance.", "Backend, frontend, test automation. The three sides of shipping software that actually works.": "Backend, frontend, automatización de pruebas. Los tres lados de desplegar software que realmente funciona.", "Backend development": "Desarrollo backend", "Laravel and PHP apps built with Clean Code and the Repository Pattern. MySQL and MariaDB modelling. REST APIs the frontend can trust.": "Aplicaciones Laravel y PHP con Clean Code y Repository Pattern. Modelado en MySQL y MariaDB. APIs REST en las que el frontend puede confiar.", "Frontend development": "Desarrollo frontend", "Interfaces in JavaScript and TypeScript, modern CSS and SASS. jQuery when a legacy codebase calls for it.": "Interfaces en JavaScript y TypeScript, CSS moderno y SASS. jQuery cuando el código heredado lo requiere.", "Test automation": "Automatización de pruebas", "End-to-end suites in Cypress and Playwright. API tests with parallelism. Katalon when the team is standardised on it.": "Suites end-to-end en Cypress y Playwright. Pruebas de API con paralelismo. Katalon cuando el equipo lo tiene estandarizado.", "Performance testing": "Pruebas de rendimiento", "Load and stress profiles with JMeter. Measuring where things actually bend, documenting it so the fix lands right.": "Perfiles de carga y estrés con JMeter. Mido dónde las cosas realmente ceden, lo documento para que el arreglo caiga donde debe.", "Scraping & data": "Scraping y datos", "Pipelines in Selenium with Python, or Playwright. MySQL validations. Geolocation-aware flows when the data needs them.": "Pipelines en Selenium con Python, o Playwright. Validaciones contra MySQL. Flujos con geolocalización cuando los datos lo requieren.", "Migrations & refactors": "Migraciones y refactors", "Carrying a working codebase to a modern framework without breaking it. Laravel upgrades. Clean Code refactors.": "Llevar un código activo a un framework moderno sin romperlo. Actualizaciones de Laravel. Refactors Clean Code.", "EXPERIENCE": "EXPERIENCIA", "Selected work.": "Trabajo seleccionado.", "Five years between building and verifying production software across retail, platform and services.": "Cinco años entre construir y verificar software en producción, en retail, plataformas y servicios.", "2025 — NOW": "2025 — ACTUAL", "Setting quality strategy for a retail platform used across the Dominican Republic. I design testing standards, build automated suites for critical paths, and surface risk early enough to actually act on it.": "Definiendo la estrategia de calidad para una plataforma retail usada en toda la República Dominicana. Diseño estándares de pruebas, construyo suites automatizadas para flujos críticos, y expongo riesgos a tiempo para poder actuar sobre ellos.", "Web Developer & QA Automation": "Web Developer y QA Automation", "Four and a half years building and testing production features side by side. PHP backends, JavaScript frontends, MySQL and Docker on one side; Cypress, Selenium, Playwright and JMeter on the other.": "Cuatro años y medio construyendo y probando funcionalidades de producción en paralelo. Backends PHP, frontends JavaScript, MySQL y Docker de un lado; Cypress, Selenium, Playwright y JMeter del otro.", "Led the migration of a working platform to Laravel 11, re-architecting around Clean Code and the Repository Pattern. Built new backend features, integrated real-time messaging, Google Analytics and payment flow.": "Lideré la migración de una plataforma activa a Laravel 11, re-arquitecturando con Clean Code y Repository Pattern. Construí funcionalidades backend, integré mensajería en tiempo real, Google Analytics y flujo de pagos.", "The stack I work with.": "El stack con el que trabajo.", "Languages, frameworks and tools I use to design, build, test and ship.": "Lenguajes, frameworks y herramientas que uso para diseñar, construir, probar y desplegar.", "LANGUAGES": "LENGUAJES", "BACKEND & FRAMEWORKS": "BACKEND Y FRAMEWORKS", "DATABASES": "BASES DE DATOS", "TESTING & QA": "PRUEBAS Y QA", "DEVOPS & TOOLS": "DEVOPS Y HERRAMIENTAS", "PROCESS & PM": "PROCESOS Y PM", "ABOUT": "SOBRE MÍ", "Between the code and the thing that proves it.": "Entre el código y lo que lo prueba.", "I've spent five years at the intersection of building and verifying software. I write Laravel and PHP backends, ship JavaScript interfaces, and automate the tests that keep them honest.": "He pasado cinco años en la intersección entre construir y verificar software. Escribo backends con Laravel y PHP, desarrollo interfaces con JavaScript, y automatizo las pruebas que los mantienen honestos.", "Both sides inform each other — the code I write anticipates how it will be tested, and the tests I write understand how it was built.": "Ambos lados se nutren mutuamente — el código que escribo anticipa cómo será probado, y las pruebas que escribo entienden cómo fue construido.", "EDUCATION": "FORMACIÓN", "CERTIFICATIONS": "CERTIFICACIONES", "Software Engineering": "Ingeniería en Software", "Software Development Technologist": "Tecnólogo en Desarrollo de Software", "Cybersecurity Fundamentals": "Diplomado en Ciberseguridad", "Dev + QA mindset": "Mentalidad Dev + QA", "Both sides inform each other.": "Ambos lados se nutren mutuamente.", "Clean Code advocate": "Clean Code", "Readable, testable, maintainable.": "Código legible, probable y mantenible.", "Fast response": "Respuesta rápida", "Within one business day.": "En un día hábil o menos.", "Bilingual": "Bilingüe", "Spanish native, English B2.": "Español nativo, inglés B2.", "CONTACT": "CONTACTO", "Have a project?": "¿Tienes un proyecto?", "Let's talk.": "Hablemos.", "Open to freelance in 2026 — remote across the Americas or on-site in Santo Domingo.": "Disponible para freelance en 2026 — remoto en las Américas o presencial en Santo Domingo.", "Send a message": "Envíame un mensaje", "Fill out the form and I'll get back to you within one business day.": "Rellena el formulario y te respondo en un día hábil.", "NAME": "NOMBRE", "SUBJECT": "ASUNTO", "MESSAGE": "MENSAJE", "Jane Doe": "Juan Pérez", "jane@company.com": "juan@empresa.com", "Looking for a QA engineer…": "Busco un ingeniero QA…", "Tell me about your project, timeline and what you need…": "Cuéntame sobre tu proyecto, tiempos y qué necesitas…", "Opens in your mail app with your message pre-filled.": "Abre tu cliente de correo con el mensaje pre-rellenado.", "Send message": "Enviar mensaje", "Sending…": "Enviando…", "Message sent": "Mensaje enviado", "I reply to every freelance inquiry within one business day.": "Respondo cada consulta freelance en un día hábil.", "PHONE": "TELÉFONO", "LOCATION": "UBICACIÓN", "Dominican Republic": "República Dominicana", "SOFTWARE ENGINEER · QA SPECIALIST": "INGENIERA DE SOFTWARE · ESPECIALISTA QA", "BUILT IN SANTO DOMINGO, DR": "HECHO EN SANTO DOMINGO, RD"};
+  var LS_KEY = 'portafolio.lang';
+  var currentLang = 'en';
+  var textCache = []; // { node, en, es }
+  var phCache = [];   // { el, en, es }
+
+  function shouldSkip(parent) {
+    while (parent) {
+      var tag = parent.nodeName;
+      if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return true;
+      parent = parent.parentNode;
+    }
+    return false;
+  }
+
+  function cacheTranslatables() {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var n;
+    while ((n = walker.nextNode())) {
+      if (shouldSkip(n.parentNode)) continue;
+      var raw = n.nodeValue;
+      var trimmed = raw.replace(/\s+/g, ' ').trim();
+      if (!trimmed) continue;
+      if (Object.prototype.hasOwnProperty.call(i18n, trimmed)) {
+        var es = raw.replace(trimmed, i18n[trimmed]);
+        textCache.push({ node: n, en: raw, es: es });
+      }
+    }
+    Array.prototype.forEach.call(
+      document.querySelectorAll('input[placeholder], textarea[placeholder]'),
+      function (el) {
+        var ph = el.getAttribute('placeholder');
+        if (ph && Object.prototype.hasOwnProperty.call(i18n, ph)) {
+          phCache.push({ el: el, en: ph, es: i18n[ph] });
+        }
+      }
+    );
+  }
+
+  function applyLang(lang) {
+    currentLang = (lang === 'es') ? 'es' : 'en';
+    textCache.forEach(function (c) { c.node.nodeValue = (currentLang === 'es') ? c.es : c.en; });
+    phCache.forEach(function (c) { c.el.setAttribute('placeholder', (currentLang === 'es') ? c.es : c.en); });
+
+    document.querySelectorAll('[data-lang-toggle]').forEach(function (el) {
+      if (el.getAttribute('data-lang-toggle') === currentLang) {
+        el.style.color = 'rgb(0, 7, 45)';
+      } else {
+        el.style.color = 'rgb(156, 163, 175)';
+      }
+    });
+    document.documentElement.lang = currentLang;
+    try { localStorage.setItem(LS_KEY, currentLang); } catch (e) {}
+  }
+
+  function wireLangToggle() {
+    var spans = Array.prototype.filter.call(
+      document.querySelectorAll('span'),
+      function (s) {
+        var t = (s.textContent || '').trim();
+        return (t === 'EN' || t === 'ES') && s.children.length === 0;
+      }
+    );
+    spans.forEach(function (s) {
+      var lang = (s.textContent.trim() === 'ES') ? 'es' : 'en';
+      s.setAttribute('data-lang-toggle', lang);
+      s.addEventListener('click', function () { applyLang(lang); });
+    });
+  }
+
+  function wireSmoothScroll() {
+    // Browsers already honor scroll-behavior: smooth for anchor clicks,
+    // but we also update history and account for the sticky nav offset.
+    var nav = document.querySelector('nav');
+    var navH = nav ? nav.getBoundingClientRect().height : 0;
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var hash = a.getAttribute('href');
+        if (!hash || hash === '#' || hash.length < 2) return;
+        var target = document.getElementById(hash.slice(1));
+        if (!target) return;
+        e.preventDefault();
+        var y = target.getBoundingClientRect().top + window.scrollY - navH - 10;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        history.replaceState(null, '', hash);
+      });
+    });
+  }
+
+  function wireForm() {
+    var form = document.querySelector('form');
+    if (!form) return;
+    var inputs = form.querySelectorAll('input, textarea');
+    var byLabel = {};
+    inputs.forEach(function (el) {
+      var ph = (el.getAttribute('placeholder') || '').toLowerCase();
+      if (el.type === 'email' || ph.indexOf('@') >= 0) byLabel.email = el;
+      else if (el.tagName === 'TEXTAREA') byLabel.message = el;
+      else if (ph.indexOf('qa') >= 0 || ph.indexOf('ingeniero') >= 0 || ph.indexOf('subject') >= 0 || ph.indexOf('asunto') >= 0) byLabel.subject = el;
+      else byLabel.name = el;
+    });
+
+    // Create a status chip
+    var status = document.createElement('div');
+    status.className = 'form-status';
+    status.setAttribute('aria-live', 'polite');
+    form.appendChild(status);
+
+    var sendBtn = form.querySelector('button[type="submit"], button:last-of-type');
+    var sendDefaultText = sendBtn ? sendBtn.textContent : '';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = (byLabel.name && byLabel.name.value || '').trim();
+      var email = (byLabel.email && byLabel.email.value || '').trim();
+      var subject = (byLabel.subject && byLabel.subject.value || '').trim() || (currentLang === 'es' ? 'Consulta freelance' : 'Freelance inquiry');
+      var message = (byLabel.message && byLabel.message.value || '').trim();
+
+      var intro = currentLang === 'es'
+        ? ('Hola Karina,\n\nSoy ' + name + ' (' + email + ').\n\n')
+        : ('Hi Karina,\n\nI\u2019m ' + name + ' (' + email + ').\n\n');
+      var body = intro + message;
+      var href = 'mailto:k07montero@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+      status.textContent = currentLang === 'es' ? 'Enviando\u2026' : 'Sending\u2026';
+      status.classList.add('show');
+      if (sendBtn) sendBtn.textContent = currentLang === 'es' ? 'Enviando\u2026' : 'Sending\u2026';
+
+      try { window.location.href = href; } catch (err) {}
+
+      setTimeout(function () {
+        status.textContent = currentLang === 'es' ? 'Mensaje enviado' : 'Message sent';
+        if (sendBtn) sendBtn.textContent = sendDefaultText;
+      }, 600);
+    });
+  }
+
+  function init() {
+    cacheTranslatables();
+    wireLangToggle();
+    wireSmoothScroll();
+    wireForm();
+    var saved;
+    try { saved = localStorage.getItem(LS_KEY); } catch (e) {}
+    if (saved === 'es' || saved === 'en') applyLang(saved);
+    else applyLang('en');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
