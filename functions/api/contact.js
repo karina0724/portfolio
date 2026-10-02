@@ -1,10 +1,29 @@
 const TO_EMAIL = 'karinamonterodev@gmail.com';
 const FROM_EMAIL = 'Portafolio <onboarding@resend.dev>';
+const ALLOWED_ORIGINS = [
+  'https://portfolio-5bw.pages.dev',
+  'https://karinamontero.dev'
+];
+
+function isOriginAllowed(origin) {
+  if (!origin) return true;
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  try {
+    const u = new URL(origin);
+    if ((u.hostname === 'localhost' || u.hostname === '127.0.0.1') && u.protocol === 'http:') return true;
+    if (u.hostname.endsWith('.pages.dev') && u.protocol === 'https:') return true;
+  } catch {}
+  return false;
+}
 
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
+}
+
+function sanitizeLine(str) {
+  return String(str).replace(/[\r\n\0]+/g, ' ').trim();
 }
 
 function json(data, status = 200) {
@@ -14,11 +33,54 @@ function json(data, status = 200) {
   });
 }
 
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_SEC = 60;
+
+async function checkRateLimit(request) {
+  if (typeof caches === 'undefined' || !caches.default) return { ok: true };
+  const ip = request.headers.get('CF-Connecting-IP') || request.headers.get('X-Forwarded-For') || 'anon';
+  const key = `https://rl.local/contact/${encodeURIComponent(ip)}`;
+  const cacheKey = new Request(key);
+  const cached = await caches.default.match(cacheKey);
+  let count = 0;
+  if (cached) {
+    const txt = await cached.text();
+    count = parseInt(txt, 10) || 0;
+  }
+  if (count >= RATE_LIMIT_MAX) return { ok: false, retryAfter: RATE_LIMIT_WINDOW_SEC };
+  const resp = new Response(String(count + 1), {
+    headers: { 'Cache-Control': `max-age=${RATE_LIMIT_WINDOW_SEC}` }
+  });
+  await caches.default.put(cacheKey, resp);
+  return { ok: true };
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
   if (!env.RESEND_API_KEY) {
-    return json({ error: 'Server misconfigured: missing RESEND_API_KEY.' }, 500);
+    return json({ error: 'Server misconfigured.' }, 500);
+  }
+
+  const origin = request.headers.get('Origin') || '';
+  if (!isOriginAllowed(origin)) {
+    return json({ error: 'Origin not allowed.' }, 403);
+  }
+
+  const contentType = request.headers.get('Content-Type') || '';
+  if (!contentType.toLowerCase().includes('application/json')) {
+    return json({ error: 'Invalid content type.' }, 415);
+  }
+
+  const rl = await checkRateLimit(request);
+  if (!rl.ok) {
+    return new Response(JSON.stringify({ error: 'Too many requests. Please try again later.' }), {
+      status: 429,
+      headers: {
+        'Content-Type': 'application/json',
+        'Retry-After': String(rl.retryAfter)
+      }
+    });
   }
 
   let payload;
@@ -28,10 +90,10 @@ export async function onRequestPost(context) {
     return json({ error: 'Invalid JSON body.' }, 400);
   }
 
-  const name = (payload.name || '').toString().trim();
-  const email = (payload.email || '').toString().trim();
-  const subject = (payload.subject || '').toString().trim();
-  const message = (payload.message || '').toString().trim();
+  const name = sanitizeLine(payload.name || '');
+  const email = sanitizeLine(payload.email || '');
+  const subject = sanitizeLine(payload.subject || '');
+  const message = String(payload.message || '').replace(/\0/g, '').trim();
   const honeypot = (payload.website || '').toString().trim();
 
   if (honeypot) return json({ ok: true });
@@ -39,11 +101,14 @@ export async function onRequestPost(context) {
   if (!name || !email || !message) {
     return json({ error: 'Name, email and message are required.' }, 400);
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return json({ error: 'Invalid email address.' }, 400);
-  }
   if (name.length > 120 || subject.length > 200 || message.length > 5000) {
     return json({ error: 'Field too long.' }, 400);
+  }
+  if (email.length > 254) {
+    return json({ error: 'Email too long.' }, 400);
+  }
+  if (!/^[^\s@<>"'`;,]+@[^\s@<>"'`;,]+\.[^\s@<>"'`;,]+$/.test(email)) {
+    return json({ error: 'Invalid email address.' }, 400);
   }
 
   const safeName = escapeHtml(name);
@@ -81,8 +146,7 @@ export async function onRequestPost(context) {
   });
 
   if (!resendRes.ok) {
-    const errText = await resendRes.text().catch(() => '');
-    return json({ error: 'Email provider failed.', detail: errText.slice(0, 300) }, 502);
+    return json({ error: 'Email provider failed.' }, 502);
   }
 
   return json({ ok: true });

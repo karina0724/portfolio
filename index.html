@@ -146,7 +146,13 @@
   .form-field:focus { border-color: #0e6ba8 !important; box-shadow: 0 0 0 4px rgba(14, 107, 168, 0.12) !important; }
 
   .social-link { transition: all 220ms ease; }
-  .social-link:hover { background: #0e6ba8 !important; color: #FFFFFF !important; border-color: #0e6ba8 !important; transform: translateY(-3px); }
+  .social-link:hover { transform: translateY(-3px); }
+  .social-link[aria-label="Email"]:hover { background: #EA4335 !important; color: #FFFFFF !important; border-color: #EA4335 !important; }
+  .social-link[aria-label="Phone"]:hover { background: #25D366 !important; color: #FFFFFF !important; border-color: #25D366 !important; }
+  .social-link[aria-label="LinkedIn"]:hover { background: #0A66C2 !important; color: #FFFFFF !important; border-color: #0A66C2 !important; }
+  .social-link[aria-label="GitHub"]:hover { background: #181717 !important; color: #FFFFFF !important; border-color: #181717 !important; }
+  .social-link[aria-label="Instagram"]:hover { background: linear-gradient(45deg, #F09433 0%, #E6683C 25%, #DC2743 50%, #CC2366 75%, #BC1888 100%) !important; color: #FFFFFF !important; border-color: #BC1888 !important; }
+  .social-link[aria-label="TikTok"]:hover { background: #000000 !important; color: #FFFFFF !important; border-color: #000000 !important; }
 
   .edu-item { transition: padding-left 240ms ease; }
   .edu-item:hover { padding-left: 12px !important; }
@@ -183,9 +189,9 @@ html { scroll-behavior: smooth; }
 .chip-tech, .chip-tech-dark { transition: transform .18s ease, background-color .18s ease !important; }
 .chip-tech:hover, .chip-tech-dark:hover { transform: translateY(-2px); }
 
-/* Social link hover */
-.social-link { transition: transform .18s ease, color .18s ease, border-color .18s ease !important; }
-.social-link:hover { transform: translateY(-2px); color: rgb(14, 107, 168) !important; }
+/* Social link hover - brand colors */
+.social-link { transition: transform .18s ease, color .18s ease, border-color .18s ease, background .25s ease, box-shadow .25s ease !important; }
+.social-link:hover { transform: translateY(-3px); }
 
 /* Form field focus */
 .form-field input:focus, .form-field textarea:focus,
@@ -234,6 +240,163 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
 /* Sent-state status chip */
 .form-status { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 13px; font-weight: 600; color: rgb(14, 107, 168); opacity: 0; transition: opacity .25s ease; }
 .form-status.show { opacity: 1; }
+
+/* ============ GLOBAL OVERFLOW FIX ============ */
+html, body { overflow-x: hidden; max-width: 100vw; }
+*, *::before, *::after { box-sizing: border-box; }
+img, svg { max-width: 100%; height: auto; }
+
+/* ============ HAMBURGER MENU ============ */
+.hamburger-btn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 220ms ease;
+  z-index: 60;
+  position: relative;
+}
+.hamburger-btn:hover { background: rgba(14, 107, 168, 0.08); }
+.hamburger-btn:active { transform: scale(0.95); }
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgb(0, 7, 45);
+  border-radius: 2px;
+  transition: all 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform-origin: center;
+}
+.hamburger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-btn.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 7, 45, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+.mobile-menu-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+body.menu-open { overflow: hidden; }
+
+/* ============ FLOATING WHATSAPP BUTTON ============ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 55;
+  transition: transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 240ms ease, background 240ms ease;
+  text-decoration: none;
+  animation: whatsapp-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: 1200ms;
+}
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.35;
+  z-index: -1;
+  animation: whatsapp-pulse 2.4s ease-out infinite;
+  animation-delay: 1700ms;
+}
+.whatsapp-float:hover {
+  background: #1EBE57;
+  color: #FFFFFF;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.whatsapp-float:active { transform: translateY(-2px) scale(1.02); }
+.whatsapp-float:focus-visible { outline: 3px solid #0e6ba8; outline-offset: 4px; }
+.whatsapp-float svg { width: 32px; height: 32px; }
+
+@keyframes whatsapp-pop {
+  0% { opacity: 0; transform: scale(0.4) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes whatsapp-pulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  70% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #00072d;
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+  box-shadow: 0 8px 20px rgba(0, 7, 45, 0.2);
+}
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: #00072d;
+}
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float { bottom: 20px; right: 20px; width: 56px; height: 56px; }
+  .whatsapp-float svg { width: 28px; height: 28px; }
+  .whatsapp-tooltip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float, .whatsapp-float::before { animation: none !important; }
+}
+
+/* ============ QUOTE CENTERING ============ */
+.quote-figure {
+  text-align: center;
+}
+.quote-figure blockquote {
+  text-align: center !important;
+}
+.quote-figure figcaption {
+  justify-content: center;
+}
 
 /* ============ RESPONSIVE DESIGN ============ */
 
@@ -284,67 +447,307 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
   footer > div { padding: 0 32px !important; }
 }
 
+/* Nav drawer: 1180px and below (hamburger kicks in early to avoid cramped nav) */
+@media (max-width: 1180px) {
+  nav > div {
+    padding: 14px 24px !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    max-width: 100% !important;
+  }
+  nav a[href="#top"] {
+    font-size: 16px !important;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  nav a[href="#top"] span { font-size: 18px !important; }
+
+  .hamburger-btn { display: flex !important; flex-shrink: 0; }
+
+  nav > div > div:last-child {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: min(85vw, 320px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #FFFFFF !important;
+    box-shadow: -10px 0 40px rgba(0, 7, 45, 0.18) !important;
+    padding: 88px 28px 32px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 4px !important;
+    z-index: 45 !important;
+    transform: translateX(100%) !important;
+    transition: transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1) !important;
+    overflow-y: auto !important;
+    will-change: transform;
+    margin: 0 !important;
+  }
+  nav > div > div:last-child.menu-open-drawer {
+    transform: translateX(0) !important;
+  }
+  nav > div > div:last-child a.nav-link {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    width: 100% !important;
+    padding: 14px 4px !important;
+    border-bottom: 1px solid rgb(240, 245, 250) !important;
+    color: rgb(0, 7, 45) !important;
+  }
+  nav > div > div:last-child > div[style*="padding: 6px 14px"] {
+    margin: 20px auto 0 !important;
+    align-self: center !important;
+  }
+  nav > div > div:last-child a[href="#contact"].btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+    font-size: 14px !important;
+    margin-top: 16px !important;
+  }
+}
+
 /* Mobile: 768px and below */
 @media (max-width: 768px) {
-  nav > div { padding: 14px 20px !important; flex-wrap: wrap; gap: 12px; }
-  nav > div > div:last-child { gap: 14px !important; flex-wrap: wrap; }
-  nav a.nav-link { font-size: 13px !important; }
-  nav a[href="#contact"].btn-primary { padding: 8px 14px !important; font-size: 12px !important; }
+  nav > div { padding: 14px 20px !important; }
+  nav a[href="#top"] { font-size: 15px !important; }
+  nav a[href="#top"] span { font-size: 17px !important; }
 
-  section#top > div:last-child { padding: 48px 20px 64px !important; }
-  section#top h1 { font-size: 44px !important; letter-spacing: -0.03em !important; }
-  section#top p { font-size: 16px !important; }
-  section#top .anim-5 { grid-template-columns: repeat(2, 1fr) !important; gap: 20px !important; margin-top: 48px !important; }
+  /* ----- Hero section ----- */
+  section#top > div:last-child {
+    padding: 40px 20px 56px !important;
+    max-width: 100% !important;
+  }
+  section#top > div:last-child > div {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
+    justify-items: center !important;
+  }
+  section#top h1 {
+    font-size: 40px !important;
+    letter-spacing: -0.03em !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto 24px !important;
+  }
+  section#top p {
+    font-size: 16px !important;
+    text-align: center !important;
+    margin: 0 auto 32px !important;
+    max-width: 100% !important;
+  }
+  section#top .anim-1 { margin: 0 auto 24px !important; }
+  section#top .anim-4 {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  section#top .anim-5 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+    margin-top: 44px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  section#top .anim-5 > div { text-align: center !important; }
   section#top .anim-5 > div > div:first-child { font-size: 28px !important; }
 
+  /* Hero floating decor off */
+  .hero-code-decor, .hero-ai-decor { display: none !important; }
+
+  /* ----- Services ----- */
   section#services { padding: 64px 0 !important; }
-  section#services > div { padding: 0 20px !important; }
-  section#services h2 { font-size: 32px !important; }
-  section#services > div > div:last-child { grid-template-columns: 1fr !important; }
+  section#services > div { padding: 0 20px !important; max-width: 100% !important; }
+  section#services > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  section#services h2 { font-size: 32px !important; max-width: 100% !important; margin: 0 auto !important; }
+  section#services > div > div:first-child p { margin: 0 auto !important; max-width: 100% !important; }
+  section#services > div > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
   section#services .card { padding: 24px !important; min-height: auto !important; }
 
+  /* ----- Work ----- */
   section#work { padding: 64px 0 !important; }
-  section#work > div { padding: 0 20px !important; }
+  section#work > div { padding: 0 20px !important; max-width: 100% !important; }
+  section#work > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
   section#work h2 { font-size: 32px !important; }
-  .exp-row { padding: 28px 0 !important; }
+  section#work > div > div:first-child p { margin: 0 auto !important; max-width: 100% !important; }
+  .exp-row { grid-template-columns: 1fr !important; gap: 20px !important; padding: 28px 0 !important; }
   .exp-row h3 { font-size: 22px !important; }
 
+  /* ----- Tech ----- */
   section#tech { padding: 64px 0 !important; }
-  section#tech > div:last-child { padding: 0 20px !important; }
+  section#tech > div:last-child { padding: 0 20px !important; max-width: 100% !important; }
+  section#tech > div:last-child > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
   section#tech h2 { font-size: 32px !important; }
-  section#tech > div:last-child > div:last-child { grid-template-columns: 1fr !important; }
+  section#tech > div:last-child > div:first-child p { margin: 0 auto !important; max-width: 100% !important; }
+  section#tech > div:last-child > div:last-child {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
   .marquee-wrap { margin-left: -20px !important; margin-right: -20px !important; }
   .marquee-track span[style*="font-size: 36px"] { font-size: 24px !important; }
 
+  /* ----- About ----- */
   section#about { padding: 64px 0 !important; }
-  section#about > div { padding: 0 20px !important; }
-  section#about h2 { font-size: 28px !important; }
+  section#about > div { padding: 0 20px !important; max-width: 100% !important; }
+  section#about > div > div {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
+  }
+  section#about h2 { font-size: 32px !important; text-align: center !important; }
   section#about > div > div > div:first-child > div:nth-child(5) { grid-template-columns: 1fr !important; }
+  .about-visual { position: relative !important; top: 0 !important; }
 
+  /* ----- Education ----- */
   section#education { padding: 64px 0 !important; }
-  section#education > div { padding: 0 20px !important; }
+  section#education > div { padding: 0 20px !important; max-width: 100% !important; }
   section#education h2 { font-size: 32px !important; }
-  section#education > div > div { grid-template-columns: 1fr !important; gap: 48px !important; }
+  section#education > div > div { grid-template-columns: 1fr !important; gap: 40px !important; }
 
+  /* ----- Contact ----- */
   section#contact { padding: 64px 0 !important; }
-  section#contact > div:last-child { padding: 0 20px !important; }
+  section#contact > div:last-child { padding: 0 20px !important; max-width: 100% !important; }
   section#contact h2 { font-size: 32px !important; }
+  section#contact > div:last-child > div:last-child { grid-template-columns: 1fr !important; gap: 32px !important; }
   section#contact form > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
   section#contact > div:last-child > div:nth-child(2) > div:first-child { padding: 28px !important; }
 
-  footer > div { padding: 0 20px !important; }
-  footer > div > div:first-child { grid-template-columns: 1fr !important; gap: 20px; justify-items: start; }
-  footer > div > div:last-child { flex-direction: column; gap: 10px; align-items: flex-start !important; }
+  /* ----- Footer ----- */
+  footer > div { padding: 0 20px !important; max-width: 100% !important; }
+  footer > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+  footer > div > div:last-child {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
 
   .profile-circle { width: 220px !important; height: 220px !important; }
   .profile-circle-ring { width: 300px !important; height: 300px !important; top: -40px !important; left: -40px !important; }
 }
 
-/* Small Mobile: 480px and below */
+/* iPhone XR / small mobile: 480px and below */
 @media (max-width: 480px) {
-  section#top h1 { font-size: 36px !important; }
-  section#services h2, section#work h2, section#tech h2, section#education h2, section#about h2, section#contact h2 { font-size: 28px !important; }
+  nav > div { padding: 12px 16px !important; }
+  nav a[href="#top"] { font-size: 14px !important; letter-spacing: -0.01em !important; }
+  nav a[href="#top"] span { font-size: 15px !important; margin-left: 2px; }
+
+  /* Hero */
+  section#top > div:last-child { padding: 36px 20px 48px !important; }
+  section#top > div:last-child > div { gap: 36px !important; }
+
+  section#top h1 { font-size: 34px !important; line-height: 1.05 !important; margin-bottom: 20px !important; }
+  section#top p { font-size: 15px !important; line-height: 1.6 !important; margin-bottom: 28px !important; }
+
+  /* Hero buttons centered and stacked */
+  section#top .anim-4 {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+  section#top .anim-4 a {
+    width: 100% !important;
+    max-width: 300px !important;
+    justify-content: center !important;
+    padding: 14px 24px !important;
+    font-size: 14px !important;
+  }
+
+  /* Stats */
+  section#top .anim-5 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px 16px !important;
+    margin-top: 40px !important;
+    padding-top: 28px !important;
+    text-align: center !important;
+  }
+  section#top .anim-5 > div { text-align: center !important; }
+  section#top .anim-5 > div > div:first-child { font-size: 24px !important; margin-bottom: 6px !important; }
+  section#top .anim-5 > div > div:last-child { font-size: 9px !important; letter-spacing: 0.08em !important; }
+
+  /* Profile */
+  .profile-circle { width: 200px !important; height: 200px !important; }
+  .profile-circle-ring { width: 272px !important; height: 272px !important; top: -36px !important; left: -36px !important; }
+
+  /* About card */
+  section#top .fade-slow > div[style*="max-width: 320px"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 22px !important;
+    text-align: center !important;
+  }
+  section#top .fade-slow > div[style*="max-width: 320px"] > div[style*="display: flex; gap: 8px"] {
+    justify-content: center !important;
+  }
+
+  /* Section titles */
+  section#services h2, section#work h2, section#tech h2,
+  section#education h2, section#about h2, section#contact h2 { font-size: 26px !important; }
   .exp-row h3 { font-size: 20px !important; }
+
+  /* Services card */
+  section#services .card { padding: 22px !important; gap: 14px !important; }
+
+  /* Contact form actions stacked */
+  section#contact form > div[style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    text-align: center;
+  }
+  section#contact form button[type="submit"] {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 24px !important;
+  }
+  section#contact form > div[style*="justify-content: space-between"] > div:first-child {
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+
+  /* Quote */
+  .quote-figure { max-width: 100% !important; padding: 48px 28px 52px !important; }
+  .quote-figure blockquote { font-size: 18px !important; line-height: 1.5 !important; }
+}
+
+/* Extra small: 380px and below */
+@media (max-width: 380px) {
+  nav a[href="#top"] { font-size: 13px !important; }
+  nav a[href="#top"] span { font-size: 14px !important; }
+  section#top h1 { font-size: 30px !important; }
+  section#top .anim-5 > div > div:first-child { font-size: 22px !important; }
 }
 </style>
 </head>
@@ -353,12 +756,19 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
 <div id="dc-root"><div class="sc-host" data-sc-name="index"><div data-dc-tpl="2" data-canvas-width="1440" data-canvas-height="5400" style="width: 100%; min-height: 100vh; background: rgb(255, 255, 255); color: rgb(0, 7, 45); font-family: Figtree, -apple-system, sans-serif; box-sizing: border-box;">
 
   
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
   <nav data-dc-tpl="3" style="position: sticky; top: 0px; z-index: 50; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgb(230, 237, 244);">
     <div data-dc-tpl="4" style="max-width: 1280px; margin: 0px auto; padding: 20px 80px; display: flex; justify-content: space-between; align-items: center;">
       <a data-dc-tpl="5" href="#top" style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em; color: rgb(0, 7, 45); display: inline-flex; align-items: center; gap: 2px;">
         Karina Montero Leonardo<span data-dc-tpl="6" style="color: rgb(14, 107, 168); font-size: 22px; line-height: 0.8;">Dev/QA.</span>
       </a>
-      <div data-dc-tpl="7" style="display: flex; gap: 36px; align-items: center;">
+      <button type="button" class="hamburger-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div data-dc-tpl="7" id="mobileMenu" style="display: flex; gap: 36px; align-items: center;">
         <a data-dc-tpl="8" href="#services" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Services</span></a>
         <a data-dc-tpl="9" href="#work" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Work</span></a>
         <a data-dc-tpl="10" href="#tech" class="nav-link" style="color: rgb(10, 36, 114); font-size: 14px; font-weight: 500;"><span class="sc-interp">Tech</span></a>
@@ -482,6 +892,12 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
               </a>
               <a data-dc-tpl="64" href="https://github.com/karina0724" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
                 <svg data-dc-tpl="65" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="66" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/kariina_071/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgb(230, 237, 244); display: flex; align-items: center; justify-content: center; color: rgb(10, 36, 114);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"></path></svg>
               </a>
             </div>
 
@@ -1327,14 +1743,14 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
 
         
         <div data-dc-tpl="286" style="padding: 32px 8px; display: flex; flex-direction: column; gap: 28px;">
-          <figure data-dc-tpl="287" style="position: relative; margin: 0px 0px 20px; padding: 36px 44px 32px; max-width: 38ch; background: rgba(255, 255, 255, 0.03); border-left: 2px solid rgb(166, 225, 250); border-radius: 0px 16px 16px 0px; backdrop-filter: blur(6px);">
-            <span aria-hidden="true" style="position: absolute; top: -8px; left: 14px; font-family: Georgia, 'Times New Roman', serif; font-size: 92px; line-height: 1; color: rgb(166, 225, 250); opacity: 0.65; font-weight: 700; pointer-events: none;">&ldquo;</span>
-            <blockquote style="font-family: Figtree; font-size: 21px; line-height: 1.45; letter-spacing: -0.015em; font-weight: 500; color: rgb(255, 255, 255); margin: 0px; quotes: none;">
+          <figure data-dc-tpl="287" class="quote-figure" style="position: relative; margin: 0px 0px 20px; padding: 52px 44px 56px; max-width: 38ch; background: rgba(255, 255, 255, 0.03); border-left: 2px solid rgb(166, 225, 250); border-radius: 0px 16px 16px 0px; backdrop-filter: blur(6px); text-align: center;">
+            <span aria-hidden="true" style="position: absolute; top: 4px; left: 14px; font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; color: rgb(166, 225, 250); opacity: 0.65; font-weight: 700; pointer-events: none;">&ldquo;</span>
+            <blockquote style="font-family: Figtree; font-size: 21px; line-height: 1.45; letter-spacing: -0.015em; font-weight: 500; color: rgb(255, 255, 255); margin: 0px; quotes: none; text-align: center;">
               <span class="sc-interp">Every great project starts with a conversation.</span><br>
               <span style="font-style: italic; font-weight: 400; color: rgb(166, 225, 250);"><span class="sc-interp">Let's start ours.</span></span>
             </blockquote>
-            <span aria-hidden="true" style="position: absolute; bottom: -42px; right: 16px; font-family: Georgia, 'Times New Roman', serif; font-size: 92px; line-height: 1; color: rgb(166, 225, 250); opacity: 0.65; font-weight: 700; pointer-events: none;">&rdquo;</span>
-            <figcaption style="margin-top: 20px; display: flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgb(166, 225, 250); font-weight: 500; text-transform: uppercase;">
+            <span aria-hidden="true" style="position: absolute; bottom: -18px; right: 16px; font-family: Georgia, 'Times New Roman', serif; font-size: 72px; line-height: 1; color: rgb(166, 225, 250); opacity: 0.65; font-weight: 700; pointer-events: none;">&rdquo;</span>
+            <figcaption style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgb(166, 225, 250); font-weight: 500; text-transform: uppercase;">
               <span style="width: 24px; height: 1px; background: rgb(166, 225, 250); display: inline-block;"></span>
               Karina Montero
             </figcaption>
@@ -1404,6 +1820,12 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
           <a data-dc-tpl="330" href="https://github.com/karina0724" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
             <svg data-dc-tpl="331" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path data-dc-tpl="332" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
           </a>
+          <a href="https://www.instagram.com/kariina_071/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-link" style="width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.14); display: flex; align-items: center; justify-content: center; color: rgb(255, 255, 255);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"></path></svg>
+          </a>
         </div>
       </div>
       <div data-dc-tpl="333" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; font-family: &quot;JetBrains Mono&quot;; font-size: 11px; letter-spacing: 0.08em; color: rgb(166, 181, 205);">
@@ -1412,6 +1834,13 @@ input:focus, textarea:focus { outline: 2px solid rgb(14, 107, 168); outline-offs
       </div>
     </div>
   </footer></div></div></div>
+
+<a href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="whatsapp-float" id="whatsappFloat" data-ws-phone="18297737011">
+  <span class="whatsapp-tooltip" data-ws-tooltip>Chat with me</span>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;en&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;],&quot;section&quot;:&quot;Content&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0e6ba8&quot;,&quot;options&quot;:[&quot;#0e6ba8&quot;,&quot;#0a2472&quot;,&quot;#a6e1fa&quot;,&quot;#00072d&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;section&quot;:&quot;Form&quot;},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:5400}}">
 class Component extends DCLogic {
   constructor() {
@@ -1699,7 +2128,7 @@ class Component extends DCLogic {
 
 <script>
 (function () {
-  var i18n = {"Services": "Servicios", "Work": "Trabajo", "Tech": "Tecnologías", "About": "Sobre mí", "Education": "Formación", "Education and certifications.": "Formación y certificaciones.", "My formal background in software engineering, plus the certifications I keep updating as I grow.": "Mi formación en ingeniería de software, más las certificaciones que mantengo al día.", "DEGREES": "TÍTULOS", "Get in touch": "Contactar", "OPEN TO NEW PROJECTS · 2026": "ABIERTA A NUEVOS PROYECTOS · 2026", "Hi, I'm Karina.": "Hola, soy Karina.", "Where development meets quality.": "Donde el desarrollo se encuentra con la calidad.", "More than five years combining web development and quality assurance. I turn requirements into solid products, taking care of every stage: architecture, code, tests and release.": "Más de cinco años combinando desarrollo web y aseguramiento de calidad. Convierto requerimientos en productos sólidos, cuidando cada etapa: arquitectura, código, pruebas y despliegue.", "Let's talk": "Hablemos", "See my work": "Ver mi trabajo", "ABOUT ME": "SOBRE MÍ", "Based in Santo Domingo. Methodical, curious and genuinely invested in projects that aim to do things well.": "Basada en Santo Domingo. Metódica, curiosa y con interés genuino en proyectos que apuntan a hacer las cosas bien.", "YEARS OF EXPERIENCE": "AÑOS DE EXPERIENCIA", "Dev": "Dev", "+ QA MINDSET": "+ MENTALIDAD QA", "ISTQB": "ISTQB", "CTFL 4.0 CERTIFIED": "CTFL 4.0 CERTIFICADA", "EN/ES": "EN/ES", "BILINGUAL": "BILINGÜE", "TECHNOLOGIES": "TECNOLOGÍAS", "SERVICES": "SERVICIOS", "Where I can help.": "En qué puedo apoyarte.", "Six focus areas that I bring together naturally to deliver a complete and reliable product.": "Seis áreas de enfoque que integro de forma natural para entregar un producto completo y confiable.", "Test automation": "Automatización de pruebas", "End-to-end automated suites with Cypress and Playwright, API testing with Postman and parallel execution. Testing strategy designed with ISTQB CTFL 4.0 backing the process.": "Suites automatizadas end-to-end con Cypress y Playwright, pruebas de API con Postman y ejecución en paralelo. Estrategia de pruebas diseñada con el respaldo de la certificación ISTQB CTFL 4.0.", "Backend development": "Desarrollo backend", "Backend features in PHP and Laravel with Clean Code and the Repository Pattern. Hands-on experience with real-time messaging, payment integrations and analytics, backed by MySQL and MariaDB.": "Funcionalidades backend en PHP y Laravel con Clean Code y Repository Pattern. Experiencia práctica en mensajería en tiempo real, integraciones de pagos y analítica, con el respaldo de MySQL y MariaDB.", "Frontend development": "Desarrollo frontend", "Interfaces in JavaScript and TypeScript, with HTML, CSS and SASS. Clean user experiences supported by code that stays maintainable over time.": "Interfaces en JavaScript y TypeScript, con HTML, CSS y SASS. Experiencias limpias para el usuario, respaldadas por código que se mantiene en el tiempo.", "Performance testing": "Pruebas de rendimiento", "Load and stress testing with JMeter to understand how the system responds under real traffic. Clear documentation of findings so the team can act on time.": "Pruebas de carga y estrés con JMeter para entender cómo responde el sistema con tráfico real. Documentación clara de los hallazgos para que el equipo actúe a tiempo.", "DevOps & tooling": "DevOps y herramientas", "Docker for consistent environments, Git for version control, and Azure DevOps and Jira for tracking. Pipelines where quality is part of the daily flow, not an afterthought.": "Docker para entornos consistentes, Git para control de versiones, y Azure DevOps y Jira para seguimiento. Pipelines donde la calidad es parte del flujo diario, no un agregado al final.", "Scraping & data": "Scraping y datos", "Scraping scripts with Selenium (Python) and Playwright, database validations in MySQL and MariaDB, and geolocation-aware flows when the use case requires it.": "Scripts de scraping con Selenium (Python) y Playwright, validaciones de base de datos en MySQL y MariaDB, y flujos con geolocalización cuando el caso de uso lo requiere.", "EXPERIENCE": "EXPERIENCIA", "My professional journey.": "Mi trayectoria profesional.", "Experience across retail, digital platforms and services, always with one foot in development and the other in quality.": "Experiencia en retail, plataformas digitales y servicios, siempre con un pie en el desarrollo y otro en la calidad.", "2025 / NOW": "2025 / ACTUAL", "Quality Assurance Senior": "Quality Assurance Senior", "I lead the quality strategy for critical features: automated tests, functional and technical validations, metrics and documentation that give the team confidence to deploy. Early risk detection helps us act on time.": "Lidero la estrategia de calidad para funcionalidades críticas: pruebas automatizadas, validaciones funcionales y técnicas, métricas y documentación que le dan confianza al equipo para desplegar. La detección temprana de riesgos nos permite actuar a tiempo.", "Web Developer & QA Automation Engineer": "Web Developer y QA Automation Engineer", "Four and a half years on both sides of the product. Development with PHP, JavaScript, jQuery, MySQL and Docker; QA with Cypress for automated testing (E2E, API, parallelism), Selenium and Playwright for scraping, and JMeter for performance, all within Scrum cycles tracked in Jira.": "Cuatro años y medio en ambos lados del producto. Desarrollo con PHP, JavaScript, jQuery, MySQL y Docker; QA con Cypress para pruebas automatizadas (E2E, API, paralelismo), Selenium y Playwright para scraping, y JMeter para rendimiento, dentro de ciclos Scrum con seguimiento en Jira.", "Backend Developer": "Backend Developer", "Platform migration to Laravel 11 with Clean Code and the Repository Pattern to keep the architecture modular. Development of new backend features, MariaDB management, and integration of real-time messaging, Google Analytics and the payment system.": "Migración de la plataforma a Laravel 11 con Clean Code y Repository Pattern para mantener una arquitectura modular. Desarrollo de nuevas funcionalidades backend, gestión de MariaDB, e integración de mensajería en tiempo real, Google Analytics y sistema de pagos.", "My technical stack.": "Mi stack técnico.", "Languages, frameworks and platforms I use to design, build, test and deploy.": "Lenguajes, frameworks y plataformas que uso para diseñar, construir, probar y desplegar.", "LANGUAGES": "LENGUAJES", "BACKEND & FRAMEWORKS": "BACKEND Y FRAMEWORKS", "DATABASES": "BASES DE DATOS", "TESTING & QA": "PRUEBAS Y QA", "DEVOPS & TOOLS": "DEVOPS Y HERRAMIENTAS", "PROCESS & PM": "PROCESOS Y PM", "ABOUT": "SOBRE MÍ", "Who's behind the code.": "Detrás del código.", "My career has moved between two complementary worlds: writing code that solves real problems, and validating that it does so reliably. That dual perspective shapes how I approach every project.": "Mi carrera ha transitado entre dos mundos que se complementan: escribir código que resuelve problemas reales y validar que lo haga de forma confiable. Esa doble perspectiva marca cómo enfoco cada proyecto.", "I value clean code, well-structured architectures and tests that give the team real confidence. I'm in the final stretch of my Software Engineering degree at UNAPEC, hold the ISTQB CTFL 4.0 certification and continue training in cybersecurity. Ongoing learning is part of how I work.": "Valoro el código limpio, las arquitecturas bien estructuradas y las pruebas que le dan confianza real al equipo. Estoy en la recta final de mi carrera de Ingeniería en Software en UNAPEC, cuento con la certificación ISTQB CTFL 4.0 y continúo formándome en ciberseguridad. El aprendizaje constante es parte de cómo trabajo.", "EDUCATION": "FORMACIÓN", "CERTIFICATIONS": "CERTIFICACIONES", "WHERE I SIT": "DONDE ME MUEVO", "Development, quality and a bit of curiosity in between.": "Desarrollo, calidad y curiosidad en el medio.", "YEARS WORKING": "AÑOS TRABAJANDO", "TOOLS USED": "HERRAMIENTAS USADAS", "Consistent, thoughtful delivery.": "Entregas consistentes y pensadas.", "A workflow that balances speed with attention to detail.": "Un flujo que equilibra velocidad y atención al detalle.", "Software Engineering": "Ingeniería en Software", "Software Development Technologist": "Tecnólogo en Desarrollo de Software", "Cybersecurity Fundamentals": "Diplomado en Ciberseguridad", "Dev + QA mindset": "Mentalidad Dev + QA", "Both perspectives feed into a better result.": "Ambas perspectivas se nutren para un mejor resultado.", "Clean Code advocate": "Clean Code", "Readable code that's easy to maintain over time.": "Código legible y fácil de mantener con el tiempo.", "Team-friendly": "Buena colaboración", "Open to code reviews, pairing and sharing what I learn.": "Abierta a revisiones de código, pairing y compartir lo que aprendo.", "Bilingual & remote-ready": "Bilingüe y remoto", "Spanish native, intermediate English.": "Español nativo, inglés intermedio.", "CONTACT": "CONTACTO", "Have a project in mind?": "¿Tienes un proyecto en mente?", "Let's talk.": "Hablemos.", "Every great project starts with a conversation.": "Todo gran proyecto empieza con una conversación.", "Let's start ours.": "Comencemos la nuestra.", "Send a message": "Envíame un mensaje", "Share your project details and I'll get back to you within one business day.": "Comparte los detalles de tu proyecto y te respondo en un día hábil.", "NAME": "NOMBRE", "SUBJECT": "ASUNTO", "MESSAGE": "MENSAJE", "Jane Doe": "Juan Pérez", "jane@company.com": "juan@empresa.com", "Looking for a QA engineer…": "Busco un ingeniero QA…", "Tell me about your project, timeline and what you need…": "Cuéntame sobre tu proyecto, tiempos y qué necesitas…", "I'll reply as soon as I see it.": "Respondo apenas lo vea.", "Send message": "Enviar mensaje", "Sending…": "Enviando…", "Message sent": "Mensaje enviado", "I value your time and reply as soon as possible.": "Valoro tu tiempo y respondo lo antes posible.", "PHONE": "TELÉFONO", "LOCATION": "UBICACIÓN", "Dominican Republic": "República Dominicana", "FULLSTACK DEVELOPER · QA SENIOR": "DESARROLLADORA FULLSTACK · QA SENIOR", "BUILT IN SANTO DOMINGO, DR": "HECHO EN SANTO DOMINGO, RD"};
+  var i18n = {"Services": "Servicios", "Work": "Trabajo", "Tech": "Tecnologías", "About": "Sobre mí", "Education": "Formación", "Education and certifications.": "Formación y certificaciones.", "My formal background in software engineering, plus the certifications I keep updating as I grow.": "Mi formación en ingeniería de software, más las certificaciones que mantengo al día.", "DEGREES": "TÍTULOS", "Get in touch": "Contactar", "OPEN TO NEW PROJECTS · 2026": "ABIERTA A NUEVOS PROYECTOS · 2026", "Hi, I'm Karina.": "Hola, soy Karina.", "Where development meets quality.": "Donde el desarrollo se encuentra con la calidad.", "More than five years combining web development and quality assurance. I turn requirements into solid products, taking care of every stage: architecture, code, tests and release.": "Más de cinco años combinando desarrollo web y aseguramiento de calidad. Convierto requerimientos en productos sólidos, cuidando cada etapa: arquitectura, código, pruebas y despliegue.", "Let's talk": "Hablemos", "See my work": "Ver mi trabajo", "ABOUT ME": "SOBRE MÍ", "Based in Santo Domingo. Methodical, curious and genuinely invested in projects that aim to do things well.": "Basada en Santo Domingo. Metódica, curiosa y con interés genuino en proyectos que apuntan a hacer las cosas bien.", "YEARS OF EXPERIENCE": "AÑOS DE EXPERIENCIA", "Dev": "Dev", "+ QA MINDSET": "+ MENTALIDAD QA", "ISTQB": "ISTQB", "CTFL 4.0 CERTIFIED": "CTFL 4.0 CERTIFICADA", "EN/ES": "EN/ES", "BILINGUAL": "BILINGÜE", "TECHNOLOGIES": "TECNOLOGÍAS", "SERVICES": "SERVICIOS", "Where I can help.": "En qué puedo apoyarte.", "Six focus areas that I bring together naturally to deliver a complete and reliable product.": "Seis áreas de enfoque que integro de forma natural para entregar un producto completo y confiable.", "Test automation": "Automatización de pruebas", "End-to-end automated suites with Cypress and Playwright, API testing with Postman and parallel execution. Testing strategy designed with ISTQB CTFL 4.0 backing the process.": "Suites automatizadas end-to-end con Cypress y Playwright, pruebas de API con Postman y ejecución en paralelo. Estrategia de pruebas diseñada con el respaldo de la certificación ISTQB CTFL 4.0.", "Backend development": "Desarrollo backend", "Backend features in PHP and Laravel with Clean Code and the Repository Pattern. Hands-on experience with real-time messaging, payment integrations and analytics, backed by MySQL and MariaDB.": "Funcionalidades backend en PHP y Laravel con Clean Code y Repository Pattern. Experiencia práctica en mensajería en tiempo real, integraciones de pagos y analítica, con el respaldo de MySQL y MariaDB.", "Frontend development": "Desarrollo frontend", "Interfaces in JavaScript and TypeScript, with HTML, CSS and SASS. Clean user experiences supported by code that stays maintainable over time.": "Interfaces en JavaScript y TypeScript, con HTML, CSS y SASS. Experiencias limpias para el usuario, respaldadas por código que se mantiene en el tiempo.", "Performance testing": "Pruebas de rendimiento", "Load and stress testing with JMeter to understand how the system responds under real traffic. Clear documentation of findings so the team can act on time.": "Pruebas de carga y estrés con JMeter para entender cómo responde el sistema con tráfico real. Documentación clara de los hallazgos para que el equipo actúe a tiempo.", "DevOps & tooling": "DevOps y herramientas", "Docker for consistent environments, Git for version control, and Azure DevOps and Jira for tracking. Pipelines where quality is part of the daily flow, not an afterthought.": "Docker para entornos consistentes, Git para control de versiones, y Azure DevOps y Jira para seguimiento. Pipelines donde la calidad es parte del flujo diario, no un agregado al final.", "Scraping & data": "Scraping y datos", "Scraping scripts with Selenium (Python) and Playwright, database validations in MySQL and MariaDB, and geolocation-aware flows when the use case requires it.": "Scripts de scraping con Selenium (Python) y Playwright, validaciones de base de datos en MySQL y MariaDB, y flujos con geolocalización cuando el caso de uso lo requiere.", "EXPERIENCE": "EXPERIENCIA", "My professional journey.": "Mi trayectoria profesional.", "Experience across retail, digital platforms and services, always with one foot in development and the other in quality.": "Experiencia en retail, plataformas digitales y servicios, siempre con un pie en el desarrollo y otro en la calidad.", "2025 / NOW": "2025 / ACTUAL", "Quality Assurance Senior": "Quality Assurance Senior", "I lead the quality strategy for critical features: automated tests, functional and technical validations, metrics and documentation that give the team confidence to deploy. Early risk detection helps us act on time.": "Lidero la estrategia de calidad para funcionalidades críticas: pruebas automatizadas, validaciones funcionales y técnicas, métricas y documentación que le dan confianza al equipo para desplegar. La detección temprana de riesgos nos permite actuar a tiempo.", "Web Developer & QA Automation Engineer": "Web Developer y QA Automation Engineer", "Four and a half years on both sides of the product. Development with PHP, JavaScript, jQuery, MySQL and Docker; QA with Cypress for automated testing (E2E, API, parallelism), Selenium and Playwright for scraping, and JMeter for performance, all within Scrum cycles tracked in Jira.": "Cuatro años y medio en ambos lados del producto. Desarrollo con PHP, JavaScript, jQuery, MySQL y Docker; QA con Cypress para pruebas automatizadas (E2E, API, paralelismo), Selenium y Playwright para scraping, y JMeter para rendimiento, dentro de ciclos Scrum con seguimiento en Jira.", "Backend Developer": "Backend Developer", "Platform migration to Laravel 11 with Clean Code and the Repository Pattern to keep the architecture modular. Development of new backend features, MariaDB management, and integration of real-time messaging, Google Analytics and the payment system.": "Migración de la plataforma a Laravel 11 con Clean Code y Repository Pattern para mantener una arquitectura modular. Desarrollo de nuevas funcionalidades backend, gestión de MariaDB, e integración de mensajería en tiempo real, Google Analytics y sistema de pagos.", "My technical stack.": "Mi stack técnico.", "Languages, frameworks and platforms I use to design, build, test and deploy.": "Lenguajes, frameworks y plataformas que uso para diseñar, construir, probar y desplegar.", "LANGUAGES": "LENGUAJES", "BACKEND & FRAMEWORKS": "BACKEND Y FRAMEWORKS", "DATABASES": "BASES DE DATOS", "TESTING & QA": "PRUEBAS Y QA", "DEVOPS & TOOLS": "DEVOPS Y HERRAMIENTAS", "PROCESS & PM": "PROCESOS Y PM", "ABOUT": "SOBRE MÍ", "Who's behind the code.": "Detrás del código.", "My career has moved between two complementary worlds: writing code that solves real problems, and validating that it does so reliably. That dual perspective shapes how I approach every project.": "Mi carrera ha transitado entre dos mundos que se complementan: escribir código que resuelve problemas reales y validar que lo haga de forma confiable. Esa doble perspectiva marca cómo enfoco cada proyecto.", "I value clean code, well-structured architectures and tests that give the team real confidence. I'm in the final stretch of my Software Engineering degree at UNAPEC, hold the ISTQB CTFL 4.0 certification and continue training in cybersecurity. Ongoing learning is part of how I work.": "Valoro el código limpio, las arquitecturas bien estructuradas y las pruebas que le dan confianza real al equipo. Estoy en la recta final de mi carrera de Ingeniería en Software en UNAPEC, cuento con la certificación ISTQB CTFL 4.0 y continúo formándome en ciberseguridad. El aprendizaje constante es parte de cómo trabajo.", "EDUCATION": "FORMACIÓN", "CERTIFICATIONS": "CERTIFICACIONES", "WHERE I SIT": "DONDE ME MUEVO", "Development, quality and a bit of curiosity in between.": "Desarrollo, calidad y curiosidad en el medio.", "YEARS WORKING": "AÑOS TRABAJANDO", "TOOLS USED": "HERRAMIENTAS USADAS", "Consistent, thoughtful delivery.": "Entregas consistentes y pensadas.", "A workflow that balances speed with attention to detail.": "Un flujo que equilibra velocidad y atención al detalle.", "Software Engineering": "Ingeniería en Software", "Software Development Technologist": "Tecnólogo en Desarrollo de Software", "Cybersecurity Fundamentals": "Diplomado en Ciberseguridad", "Dev + QA mindset": "Mentalidad Dev + QA", "Both perspectives feed into a better result.": "Ambas perspectivas se nutren para un mejor resultado.", "Clean Code advocate": "Clean Code", "Readable code that's easy to maintain over time.": "Código legible y fácil de mantener con el tiempo.", "Team-friendly": "Buena colaboración", "Open to code reviews, pairing and sharing what I learn.": "Abierta a revisiones de código, pairing y compartir lo que aprendo.", "Bilingual & remote-ready": "Bilingüe y remoto", "Spanish native, intermediate English.": "Español nativo, inglés intermedio.", "CONTACT": "CONTACTO", "Have a project in mind?": "¿Tienes un proyecto en mente?", "Let's talk.": "Hablemos.", "Every great project starts with a conversation.": "Todo gran proyecto empieza con una conversación.", "Let's start ours.": "Comencemos la nuestra.", "Send a message": "Envíame un mensaje", "Share your project details and I'll get back to you within one business day.": "Comparte los detalles de tu proyecto y te respondo en un día hábil.", "NAME": "NOMBRE", "SUBJECT": "ASUNTO", "MESSAGE": "MENSAJE", "Jane Doe": "Juan Pérez", "jane@company.com": "juan@empresa.com", "Looking for a QA engineer…": "Busco un ingeniero QA…", "Tell me about your project, timeline and what you need…": "Cuéntame sobre tu proyecto, tiempos y qué necesitas…", "I'll reply as soon as I see it.": "Respondo apenas lo vea.", "Send message": "Enviar mensaje", "Sending…": "Enviando…", "Message sent": "Mensaje enviado", "I value your time and reply as soon as possible.": "Valoro tu tiempo y respondo lo antes posible.", "PHONE": "TELÉFONO", "LOCATION": "UBICACIÓN", "Dominican Republic": "República Dominicana", "FULLSTACK DEVELOPER · QA SENIOR": "DESARROLLADORA FULLSTACK · QA SENIOR", "BUILT IN SANTO DOMINGO, DR": "HECHO EN SANTO DOMINGO, RD", "Chat with me": "Hablemos por WhatsApp"};
   var LS_KEY = 'portafolio.lang';
   var currentLang = 'en';
   var textCache = []; // { node, en, es }
@@ -1753,6 +2182,7 @@ class Component extends DCLogic {
 
     document.documentElement.lang = currentLang;
     try { localStorage.setItem(LS_KEY, currentLang); } catch (e) {}
+    document.dispatchEvent(new CustomEvent('ws-lang-change', { detail: currentLang }));
   }
 
   function wireLangToggle() {
@@ -1843,12 +2273,14 @@ class Component extends DCLogic {
         body: JSON.stringify({ name: name, email: email, subject: subject, message: message, website: website })
       })
         .then(function (res) {
-          return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+          return res.json().then(function (data) { return { ok: res.ok, status: res.status, data: data }; });
         })
         .then(function (result) {
           if (result.ok) {
             setStatus(currentLang === 'es' ? 'Mensaje enviado \u2713' : 'Message sent \u2713', false);
             form.reset();
+          } else if (result.status === 429) {
+            setStatus(currentLang === 'es' ? 'Demasiados intentos. Espera un minuto e int\u00e9ntalo de nuevo.' : 'Too many attempts. Please wait a minute and try again.', true);
           } else {
             var msg = (result.data && result.data.error) || (currentLang === 'es' ? 'No pudimos enviar el mensaje. Int\u00e9ntalo de nuevo.' : 'Could not send the message. Please try again.');
             setStatus(msg, true);
@@ -1866,11 +2298,68 @@ class Component extends DCLogic {
     });
   }
 
+  function wireHamburger() {
+    var btn = document.getElementById('menuToggle');
+    var menu = document.getElementById('mobileMenu');
+    var overlay = document.getElementById('menuOverlay');
+    if (!btn || !menu) return;
+
+    function closeMenu() {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('menu-open-drawer');
+      if (overlay) overlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+    function openMenu() {
+      btn.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+      menu.classList.add('menu-open-drawer');
+      if (overlay) overlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+
+    btn.addEventListener('click', function () {
+      if (menu.classList.contains('menu-open-drawer')) closeMenu();
+      else openMenu();
+    });
+
+    if (overlay) overlay.addEventListener('click', closeMenu);
+
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('menu-open-drawer')) closeMenu();
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768 && menu.classList.contains('menu-open-drawer')) closeMenu();
+    });
+  }
+
+  function wireWhatsApp() {
+    var ws = document.getElementById('whatsappFloat');
+    if (!ws) return;
+    var phone = ws.getAttribute('data-ws-phone') || '18297737011';
+    function updateHref() {
+      var msg = currentLang === 'es'
+        ? '¡Hola, Karina!, vi tu portafolio y me gustaría conversar sobre un proyecto.'
+        : 'Hi, Karina, I saw your portfolio and would love to chat about a project.';
+      ws.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
+    }
+    updateHref();
+    document.addEventListener('ws-lang-change', updateHref);
+  }
+
   function init() {
     cacheTranslatables();
     wireLangToggle();
     wireSmoothScroll();
     wireForm();
+    wireHamburger();
+    wireWhatsApp();
     var saved;
     try { saved = localStorage.getItem(LS_KEY); } catch (e) {}
     if (saved === 'es' || saved === 'en') applyLang(saved);
